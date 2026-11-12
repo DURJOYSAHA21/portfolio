@@ -1,37 +1,42 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useInView, usePrefersReducedMotion } from "./motion";
+import { useInView, useReducedMotion } from "./motion";
 
-/** Counts up from zero the first time it scrolls into view. */
+/** Counts up to `value` once it scrolls into view. Renders the final value on the server. */
 export default function CountUp({
   value,
-  duration = 1100,
-  format = (n: number) => String(Math.round(n)),
+  decimals = 0,
+  suffix = "",
+  className = "",
 }: {
   value: number;
-  duration?: number;
-  format?: (n: number) => string;
+  decimals?: number;
+  suffix?: string;
+  className?: string;
 }) {
   const { ref, inView } = useInView<HTMLSpanElement>();
-  const reduced = usePrefersReducedMotion();
-  const [shown, setShown] = useState(0);
+  const [shown, setShown] = useState<number | null>(null);
+  const reduced = useReducedMotion();
 
   useEffect(() => {
     if (!inView || reduced) return;
     let raf = 0;
     const start = performance.now();
     const tick = (now: number) => {
-      const t = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      setShown(value * eased);
+      const t = Math.min(1, (now - start) / 1400);
+      setShown(value * (1 - Math.pow(1 - t, 3)));
       if (t < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, reduced, value, duration]);
+  }, [inView, value, reduced]);
 
-  const display = reduced ? value : shown;
-
-  return <span ref={ref}>{format(display)}</span>;
+  const n = shown ?? value;
+  return (
+    <span ref={ref} className={`tabular-nums ${className}`}>
+      {decimals ? n.toFixed(decimals) : Math.round(n)}
+      {suffix}
+    </span>
+  );
 }

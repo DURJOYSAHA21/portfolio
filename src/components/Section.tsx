@@ -1,86 +1,31 @@
-"use client";
+import type { ReactNode } from "react";
+import type { SectionId } from "@/lib/content";
+import { ACTIVE_SECTIONS, SECTIONS } from "@/lib/site";
+import Highlight from "./Highlight";
+import Reveal from "./Reveal";
 
-import { useEffect, useState, type ReactNode } from "react";
-import { useInView, usePrefersReducedMotion } from "./motion";
+/** Small label above the heading when the section has no menu label. */
+const EYEBROW: Partial<Record<SectionId, string>> = { github: "GitHub", testimonials: "Quotes" };
 
-function TypedTitle({ text }: { text: string }) {
-  const { ref, inView } = useInView<HTMLHeadingElement>("0px 0px -20% 0px");
-  const reduced = usePrefersReducedMotion();
-  const [typed, setTyped] = useState("");
-
-  useEffect(() => {
-    if (!inView || reduced) return;
-    let i = 0;
-    const id = setInterval(() => {
-      i += 1;
-      setTyped(text.slice(0, i));
-      if (i >= text.length) clearInterval(id);
-    }, 55);
-    return () => clearInterval(id);
-  }, [inView, reduced, text]);
-
-  const shown = reduced ? text : typed;
+/** Centered section header: numbered eyebrow, big title (with *gradient* words), subtitle. */
+export default function Section({ id, children }: { id: SectionId; children: ReactNode }) {
+  const { title, kicker, nav } = SECTIONS[id];
+  const number = String(ACTIVE_SECTIONS.indexOf(id) + 1).padStart(2, "0");
+  const eyebrow = nav || EYEBROW[id] || id.charAt(0).toUpperCase() + id.slice(1);
 
   return (
-    <h2
-      ref={ref}
-      className="mono shrink-0 text-[1.45rem] font-bold uppercase leading-none tracking-[0.04em] sm:text-[1.8rem]"
-    >
-      <span className="sr-only">{text}</span>
-      <span aria-hidden="true" className={inView ? "shimmer" : "text-fg"}>
-        {shown}
-        {inView && !reduced && shown.length < text.length && (
-          <span className="ml-1 inline-block h-[0.8em] w-[0.35em] translate-y-[0.06em] bg-[var(--accent)]" />
-        )}
-      </span>
-    </h2>
-  );
-}
-
-export type Accent = "gold" | "brass" | "teal" | "clay";
-
-export default function Section({
-  id,
-  index,
-  title,
-  kicker,
-  accent = "gold",
-  children,
-}: {
-  id: string;
-  index: string;
-  title: string;
-  kicker?: string;
-  accent?: Accent;
-  children: ReactNode;
-}) {
-  return (
-    <section
-      id={id}
-      className={`accent-${accent} shell relative scroll-mt-28 overflow-x-clip py-24`}
-    >
-      <span aria-hidden="true" className="ghost-num">
-        {index}
-      </span>
-
-      <div className="relative z-10">
-        <header className="mb-10">
-          <div className="flex items-center gap-3">
-            <span className="mono rounded-[3px] border border-[color-mix(in_srgb,var(--accent)_55%,transparent)] bg-[rgba(3,11,20,0.72)] px-2 py-1 text-[0.62rem] text-[var(--accent)]">
-              {index}
-            </span>
-            <TypedTitle text={title} />
-            <span aria-hidden="true" className="rule ml-2 flex-1" />
-          </div>
-          {kicker && (
-            <p className="mono mt-3 flex max-w-2xl gap-2 text-[0.7rem] uppercase tracking-[0.22em] text-muted">
-              <span aria-hidden="true" className="shrink-0 text-[var(--accent)]">
-                {">"}
-              </span>
-              {kicker}
-            </p>
-          )}
-        </header>
+    <section id={id} className="relative z-10 scroll-mt-20 py-20 sm:py-28">
+      <div className="shell">
+        <Reveal className="mx-auto mb-12 max-w-2xl text-center sm:mb-16">
+          <span className="eyebrow">
+            <span className="mono text-[0.7rem] text-a2">{number}</span>
+            {eyebrow}
+          </span>
+          <h2 className="display mt-5 text-[clamp(2.1rem,5.5vw,3.6rem)] font-bold leading-[1.05] tracking-[-0.03em] text-fg">
+            <Highlight text={title} />
+          </h2>
+          {kicker && <p className="mt-4 text-[1.05rem] text-muted">{kicker}</p>}
+        </Reveal>
         {children}
       </div>
     </section>

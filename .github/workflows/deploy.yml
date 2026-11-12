@@ -1,0 +1,56 @@
+# Rebuilds the static export on every push to main (including saves from /admin)
+# and publishes it to the gh-pages branch, which GitHub Pages serves.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# A newer save supersedes a build still running for an older one.
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Works in any repository: a "<user>.github.io" repo is served from "/",
+      # any other repo from "/<repo>/". The admin also learns which repo to save to.
+      - name: Work out the site address
+        run: |
+          NAME="${GITHUB_REPOSITORY#*/}"
+          if [ "${NAME,,}" = "${GITHUB_REPOSITORY_OWNER,,}.github.io" ]; then BASE=""; else BASE="/$NAME"; fi
+          echo "NEXT_PUBLIC_BASE_PATH=$BASE" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_REPO=$GITHUB_REPOSITORY" >> "$GITHUB_ENV"
+          echo "Site path: '${BASE:-/}'  repo: $GITHUB_REPOSITORY"
+
+      - name: Build static export
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Publish out/ to gh-pages
+        working-directory: out
+        run: |
+          touch .nojekyll
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA::7}"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages

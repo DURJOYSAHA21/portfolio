@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { CONTACT, GITHUB_USER, PROFILE, asset } from "@/lib/site";
+import { CONTACT, CONTENT, GITHUB_USER, PROFILE, asset } from "@/lib/site";
+import Highlight from "./Highlight";
+import Icon, { type IconName } from "./Icons";
+import Reveal from "./Reveal";
 import Section from "./Section";
-import Tile from "./Tile";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -18,100 +20,71 @@ export default function Contact() {
     }
   };
 
+  type Detail = { icon: IconName; label: string; value: string; href?: string; note?: string; external?: boolean; download?: boolean };
+  const details = [
+    { icon: "github", label: "GitHub", value: `@${GITHUB_USER}`, href: CONTACT.github, external: true },
+    CONTACT.phone && { icon: "phone", label: "Phone", value: CONTACT.phone, href: CONTACT.phoneHref },
+    CONTACT.location && { icon: "pin", label: "Location", value: CONTACT.location, note: CONTACT.timezone },
+    PROFILE.cv && { icon: "file", label: "CV", value: CONTENT.contactCopy.cvTitle || "Download", href: asset(PROFILE.cv), download: true },
+  ].filter(Boolean) as Detail[];
+
   return (
-    <Section
-      id="contact"
-      index="08"
-      title="contact"
-      accent="gold"
-      kicker="open to ml & backend internships"
-    >
-      <div className="bento">
-        <Tile accent="gold" lead span="sm:col-span-2 lg:col-span-4" className="p-6 sm:p-8">
-          <p className="display text-[1.45rem] font-semibold leading-snug text-fg sm:text-[1.9rem]">
-            Tell me what you actually need — <span className="gold-text">the reply is fast</span>.
-          </p>
-          <p className="mt-4 max-w-xl text-[0.92rem] leading-relaxed text-fg/70">
-            I am looking for ML and backend internships, and I happily take a second pass on an
-            audio or language problem. Research questions, half-built ideas and job posts all count.
-          </p>
-
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a
-              href={`mailto:${CONTACT.email}`}
-              className="sheen relative rounded-[3px] bg-gradient-to-r from-gold via-brass to-gold px-6 py-3 text-sm font-semibold text-[#17293f] shadow-[5px_5px_0_rgba(3,11,20,0.62)] transition-transform hover:-translate-x-[2px] hover:-translate-y-[3px]"
-            >
-              {CONTACT.email}
-            </a>
-            <button
-              type="button"
-              onClick={copyEmail}
-              className="mono rounded-[3px] border border-line bg-[rgba(3,11,20,0.6)] px-4 py-3 text-[0.68rem] uppercase tracking-[0.16em] text-muted transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              {copied ? "copied" : "copy"}
-            </button>
-          </div>
-        </Tile>
-
-        <Tile
-          accent="brass"
-          span="lg:col-span-2"
-          delay={90}
-          className="relative flex flex-col justify-between overflow-hidden p-6 pr-24"
-        >
-          <span
-            aria-hidden="true"
-            className="seal mono text-[0.55rem] uppercase tracking-[0.2em] text-[var(--accent)]"
-          >
-            pdf
-          </span>
-          <div>
-            <p className="mono text-[0.6rem] uppercase tracking-[0.24em] text-muted">cv</p>
-            <p className="display mt-3 text-[1.25rem] font-semibold leading-tight text-[var(--accent)]">
-              one page, no fluff
+    <Section id="contact">
+      <Reveal>
+        <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[28px] p-[1.5px]">
+          {/* spinning gradient border */}
+          <div className="spin-slow absolute left-1/2 top-1/2 aspect-square w-[160%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_0deg,var(--a1)_60deg,var(--a2)_120deg,transparent_180deg,transparent_360deg)]" />
+          <div className="relative rounded-[27px] bg-[radial-gradient(ellipse_at_top,var(--deep),#0a0b14_70%)] px-6 py-12 text-center sm:px-14 sm:py-16">
+            <p className="display text-[clamp(1.6rem,4vw,2.6rem)] font-bold leading-tight tracking-tight text-white">
+              <Highlight text={CONTENT.contactCopy.headline} />
             </p>
+            {CONTENT.contactCopy.body && (
+              <p className="mx-auto mt-5 max-w-xl text-[1.03rem] leading-relaxed text-fg-soft">{CONTENT.contactCopy.body}</p>
+            )}
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <a href={`mailto:${CONTACT.email}`} className="btn btn-glow !px-6 !py-3.5 text-base">
+                <Icon name="mail" size={18} /> {CONTACT.email}
+              </a>
+              <button type="button" onClick={copyEmail} className="btn !py-3.5" aria-live="polite">
+                <Icon name={copied ? "check" : "copy"} size={16} /> {copied ? "Copied!" : "Copy"}
+              </button>
+            </div>
           </div>
-          <a
-            href={asset(PROFILE.cv)}
-            download
-            className="mono mt-6 inline-flex w-fit items-center gap-2 rounded-[3px] border border-[color-mix(in_srgb,var(--accent)_55%,transparent)] bg-[rgba(3,11,20,0.6)] px-4 py-2.5 text-[0.68rem] uppercase tracking-[0.16em] text-fg/85 transition-colors hover:text-[var(--accent)]"
-          >
-            download ↓
-          </a>
-        </Tile>
+        </div>
+      </Reveal>
 
-        <Tile accent="teal" span="lg:col-span-2" delay={150} className="p-6">
-          <p className="mono text-[0.6rem] uppercase tracking-[0.24em] text-muted">github</p>
-          <a
-            href={CONTACT.github}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="mono mt-3 block text-[0.98rem] font-bold leading-snug text-fg transition-colors hover:text-[var(--accent)]"
-          >
-            {GITHUB_USER} ↗
-          </a>
-        </Tile>
-
-        <Tile accent="clay" span="lg:col-span-2" delay={210} className="p-6">
-          <p className="mono text-[0.6rem] uppercase tracking-[0.24em] text-muted">phone</p>
-          <a
-            href={CONTACT.phoneHref}
-            className="mono mt-3 block text-[0.98rem] font-bold tabular-nums text-fg transition-colors hover:text-[var(--accent)]"
-          >
-            {CONTACT.phone}
-          </a>
-        </Tile>
-
-        <Tile accent="gold" span="lg:col-span-2" delay={270} className="p-6">
-          <p className="mono text-[0.6rem] uppercase tracking-[0.24em] text-muted">where</p>
-          <p className="mt-3 text-[1.02rem] font-bold leading-snug text-fg">
-            {CONTACT.location}
-          </p>
-          <p className="mono mt-2 text-[0.66rem] uppercase tracking-[0.18em] text-gold">
-            gmt+6 · dhaka, bangladesh
-          </p>
-        </Tile>
-      </div>
+      <ul className="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {details.map((d, i) => {
+          const body = (
+            <>
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-a2 transition-colors group-hover:bg-[linear-gradient(135deg,var(--b1),var(--a1))] group-hover:text-white">
+                <Icon name={d.icon} size={18} />
+              </span>
+              <span className="mt-4 block text-[0.75rem] font-semibold uppercase tracking-wider text-muted">{d.label}</span>
+              <span className="mt-1 block break-words text-[0.92rem] font-medium text-white">{d.value}</span>
+              {d.note && <span className="mt-0.5 block text-[0.78rem] text-muted">{d.note}</span>}
+            </>
+          );
+          return (
+            <li key={d.label}>
+              <Reveal delay={i * 80} className="h-full">
+                {d.href ? (
+                  <a
+                    href={d.href}
+                    className="glass lift group block h-full p-5"
+                    {...(d.external && { target: "_blank", rel: "noreferrer noopener" })}
+                    {...(d.download && { download: true })}
+                  >
+                    {body}
+                  </a>
+                ) : (
+                  <div className="glass group h-full p-5">{body}</div>
+                )}
+              </Reveal>
+            </li>
+          );
+        })}
+      </ul>
     </Section>
   );
 }

@@ -1,84 +1,61 @@
-"use client";
-
-import { SKILLS, type SkillAccent } from "@/lib/site";
+import { CONTENT, SKILLS } from "@/lib/site";
+import Icon, { type IconName } from "./Icons";
 import Reveal from "./Reveal";
 import Section from "./Section";
-import { useInView } from "./motion";
+import SpotlightCard from "./SpotlightCard";
 
-/** The wide tiles are the ones with the most ground covered. */
-const SPANS = [
-  "lg:col-span-2",
-  "lg:col-span-1",
-  "lg:col-span-2",
-  "lg:col-span-1",
-  "lg:col-span-1",
-  "lg:col-span-2",
-];
-
-/** Six groups, one material. The board's lead card is the language stack. */
-const LEAD = 0;
-
-function SkillGroup({
-  label,
-  accent,
-  items,
-  lead,
-}: {
-  label: string;
-  accent: SkillAccent;
-  items: string[];
-  lead: boolean;
-}) {
-  const { ref, inView } = useInView<HTMLDivElement>();
-
-  return (
-    <div
-      ref={ref}
-      className={`tile tile-bar sheen accent-${accent} h-full p-5 sm:p-6 ${lead ? "tile-lit" : ""}`}
-    >
-      <div className="mb-4 flex items-center gap-2.5">
-        <span className="pulse-dot h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />
-        <h3 className={`mono uppercase tracking-[0.26em] text-[var(--accent)] ${lead ? "text-[0.7rem]" : "text-[0.64rem]"}`}>
-          {label}
-        </h3>
-        <span className="mono ml-auto text-[0.66rem] tabular-nums text-muted">
-          {String(items.length).padStart(2, "0")}
-        </span>
-      </div>
-      <ul className="flex flex-wrap gap-2">
-        {items.map((item, i) => (
-          <li
-            key={item}
-            style={{ transitionDelay: `${i * 45}ms` }}
-            className={`chip cursor-default text-fg/85 transition-all duration-500 hover:text-[var(--accent)] ${
-              inView ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
-            }`}
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+/** Picks an icon from the group's name; falls back to cycling a set. */
+function iconFor(label: string, i: number): IconName {
+  const l = label.toLowerCase();
+  if (/language/.test(l)) return "code";
+  if (/ai|ml|machine|data/.test(l)) return "brain";
+  if (/front|ui|web/.test(l)) return "globe";
+  if (/back|server|api/.test(l)) return "cpu";
+  if (/data ?base|sql/.test(l)) return "database";
+  if (/tool|work/.test(l)) return "wrench";
+  return (["layers", "sparkles", "terminal"] as IconName[])[i % 3];
 }
+
+const TINTS = ["tint-1", "tint-2", "tint-3", "tint-4"];
 
 export default function Skills() {
   return (
-    <Section id="skills" index="03" title="skills" accent="brass" kicker="tools, not a logo wall">
-      <Reveal>
-        <p className="mb-9 max-w-2xl text-[0.95rem] leading-relaxed text-muted">
-          Straight off the CV: the languages I write, the front and back end I build with, the
-          databases behind them, the AI/ML side, and the tools plus working habits that actually get
-          a build out the door.
-        </p>
-      </Reveal>
-      <div className="bento lg:grid-cols-3">
+    <Section id="skills">
+      {CONTENT.skillsIntro && (
+        <Reveal>
+          <p className="mx-auto -mt-4 mb-12 max-w-2xl text-center text-[1.03rem] leading-relaxed text-fg-soft">
+            {CONTENT.skillsIntro}
+          </p>
+        </Reveal>
+      )}
+      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {SKILLS.map((group, i) => (
-          <Reveal key={group.label} delay={i * 70} className={SPANS[i]}>
-            <SkillGroup {...group} lead={i === LEAD} />
-          </Reveal>
+          <li key={`${group.label}-${i}`} className="h-full">
+            <Reveal delay={(i % 3) * 90} className="h-full">
+              <SpotlightCard as="div" className="lift h-full p-6">
+                <div className="flex items-center gap-3">
+                  <span
+                    className={`grid h-11 w-11 place-items-center rounded-xl text-white shadow-lg transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110 ${
+                      TINTS[i % TINTS.length]
+                    }`}
+                  >
+                    <Icon name={iconFor(group.label, i)} size={20} />
+                  </span>
+                  <h3 className="display text-[1.1rem] font-bold text-white">{group.label}</h3>
+                  <span className="mono ml-auto text-xs text-muted">{String(group.items.length).padStart(2, "0")}</span>
+                </div>
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <li key={item} className="chip !text-[0.8rem]">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </SpotlightCard>
+            </Reveal>
+          </li>
         ))}
-      </div>
+      </ul>
     </Section>
   );
 }

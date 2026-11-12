@@ -60,3 +60,18 @@ export function usePrefersReducedMotion() {
     () => false
   );
 }
+
+const REDUCED = "(prefers-reduced-motion: reduce)";
+
+/** True when the visitor asked the OS for less motion. */
+export function useReducedMotion() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const query = window.matchMedia(REDUCED);
+      query.addEventListener("change", onChange);
+      return () => query.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(REDUCED).matches,
+    () => false
+  );
+}

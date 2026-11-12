@@ -8,37 +8,41 @@ export type Repo = {
   stargazers_count: number;
   html_url: string;
   pushed_at: string;
+  language: string | null;
+  fork: boolean;
+  forks_count: number;
 };
+
+export type GitHubUser = { public_repos: number; followers: number; following: number; created_at: string };
+
+/** One day of the contribution calendar; level is 0–4 like GitHub's own colours. */
+export type Day = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
+export type Contributions = { total: number; days: Day[] };
 
 /**
  * The site is fully static, so every visitor hits the API themselves and the
- * unauthenticated cap is 60 requests/hour per IP. One call per visit, cached in
- * session storage, keeps a few refreshes from exhausting it.
+ * unauthenticated cap is 60 requests/hour per IP. Each call is cached in
+ * session storage, so a few refreshes do not exhaust it.
  */
-export async function getRepos(): Promise<Repo[] | null> {
+async function cachedJson<T>(url: string, headers: Record<string, string> = {}): Promise<T | null> {
   if (typeof window === "undefined") return null;
-
-  const url = `${API}/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
   const key = `gh:${url}`;
 
   try {
     const hit = sessionStorage.getItem(key);
     if (hit) {
-      const parsed = JSON.parse(hit) as { at: number; data: Repo[] };
+      const parsed = JSON.parse(hit) as { at: number; data: T };
       if (Date.now() - parsed.at < TTL_MS) return parsed.data;
     }
   } catch {
     /* stale or blocked storage: fall through to a live fetch */
   }
 
-  const request = () =>
-    fetch(url, { headers: { Accept: "application/vnd.github+json" } }).then((res) =>
-      res.ok ? (res.json() as Promise<Repo[]>) : null
-    );
+  const request = () => fetch(url, { headers }).then((res) => (res.ok ? (res.json() as Promise<T>) : null));
 
   try {
     let data = await request();
-    // one retry so a dropped request does not leave the cards blank until reload
+    // one retry so a dropped request does not leave the widget blank until reload
     if (data === null) {
       await new Promise((resolve) => setTimeout(resolve, 1200));
       data = await request();
@@ -54,4 +58,22 @@ export async function getRepos(): Promise<Repo[] | null> {
   } catch {
     return null;
   }
+}
+
+const GH = { Accept: "application/vnd.github+json" };
+
+export const getRepos = () => cachedJson<Repo[]>(`${API}/users/${GITHUB_USER}/repos?per_page=100&sort=updated`, GH);
+
+export const getUser = () => cachedJson<GitHubUser>(`${API}/users/${GITHUB_USER}`, GH);
+
+/**
+ * GitHub's REST API has no contribution calendar without a token, so this uses
+ * the free, open-source github-contributions-api (it reads the public profile).
+ */
+export async function getContributions(): Promise<Contributions | null> {
+  const data = await cachedJson<{ total: Record<string, number>; contributions: Day[] }>(
+    `https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}?y=last`
+  );
+  if (!data?.contributions?.length) return null;
+  return { total: data.total?.lastYear ?? data.contributions.reduce((n, d) => n + d.count, 0), days: data.contributions };
 }

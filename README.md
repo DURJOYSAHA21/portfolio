@@ -4,7 +4,11 @@ Personal portfolio for Durjoy Saha — final-year CSE student, ML and backend. N
 Router, Tailwind v4, TypeScript strict, statically exported to `out/` so GitHub Pages serves it as
 plain files.
 
-**To edit the site yourself, read [PROJECT_GUIDE.md](PROJECT_GUIDE.md) first.** It maps every file, gives
+**To edit the site, open [/admin](https://durjoysaha21.github.io/admin/)** — a dashboard that edits
+every section, uploads a new photo or CV, and publishes in one click (setup in
+[PROJECT_GUIDE.md §0](PROJECT_GUIDE.md#0-the-admin-dashboard-admin)).
+
+**To change the code, read [PROJECT_GUIDE.md](PROJECT_GUIDE.md) first.** It maps every file, gives
 copy-paste recipes for common changes (add a project, add a paper, change a colour), and explains the
 two-branch deploy.
 
@@ -17,7 +21,10 @@ npm run build    # writes the static site to out/
 ## What lives where
 
 - Every fact on the page — profile, education, skills, builds, competitions, papers, honors, contact
-  links — is data in `src/lib/site.ts`. Sections read from it and hold no copy of their own.
+  links, section titles, SEO text — is data in `src/content/site.json`, typed by `src/lib/content.ts`
+  and exposed through `src/lib/site.ts`. Sections read from it and hold no copy of their own.
+- `/admin` (`src/components/admin/`) edits that file through the GitHub API with the owner's token:
+  one commit per publish, conflict-checked, with drafts, version history and deploy status.
 - The board each section renders is a `bento` grid of `Tile`s. One card material, and `lead` lights
   the single headline card per board.
 - Theme tokens, the card surface and every animation are in `src/app/globals.css`.
@@ -36,13 +43,11 @@ stays blank.
 
 ## Deploying
 
-Live at **https://durjoysaha21.github.io/** — a user site served from `/`, so the build uses an
-empty `NEXT_PUBLIC_BASE_PATH`. A project site (`user.github.io/repo`) would need that value set to
-`/repo-name`; it is compiled into the export, not read at runtime.
+The deploy workflow picks the address from the repository name: `<user>.github.io` is served from
+`/`, any other repo from `/<repo>/` (it sets `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_REPO` for the
+build, so the admin also saves to the right repo).
 
-GitHub Pages is configured to publish the `gh-pages` branch, which holds nothing but the built
-`out/` of this repository. That branch is generated, never edited by hand.
-
-`.github/workflows/deploy.yml` replaces that with a build on every push to `main` (Actions as the
-Pages source). It is intentionally not committed yet: pushing anything under `.github/workflows/`
-requires an OAuth token with the `workflow` scope.
+GitHub Pages publishes the `gh-pages` branch, which holds nothing but the built `out/` of this
+repository. `.github/workflows/deploy.yml` regenerates it on every push to `main` — including every
+publish from `/admin` — so the branch is never edited by hand. Pushing changes under
+`.github/workflows/` requires an OAuth token with the `workflow` scope.

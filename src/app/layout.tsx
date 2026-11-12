@@ -1,46 +1,58 @@
-import type { Metadata } from "next";
-import { Fraunces, JetBrains_Mono, Space_Grotesk } from "next/font/google";
-import { GITHUB_USER } from "@/lib/site";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono, Sora } from "next/font/google";
+import { PALETTES, customPaletteCss } from "@/lib/content";
+import { CONTENT, FEATURES, GITHUB_USER } from "@/lib/site";
 import "./globals.css";
 
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const grotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  display: "swap",
-});
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
+const sora = Sora({ variable: "--font-sora", subsets: ["latin"], display: "swap", weight: ["400", "600", "700", "800"] });
+const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`https://${GITHUB_USER.toLowerCase()}.github.io`),
-  title: "Durjoy Saha — AI/ML student who ships",
-  description:
-    "Portfolio of Durjoy Saha: audio deepfake and vishing detection research, applied NLP, and LLM tooling. Final-year CSE student in Dhaka, open to ML and backend internships.",
+  metadataBase: new URL(`https://${GITHUB_USER.toLowerCase()}.github.io${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/`),
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
   openGraph: {
-    title: "Durjoy Saha — AI/ML student who ships",
-    description:
-      "Audio deepfake detection research, applied NLP and LLM tooling. Final-year CSE student, open to ML and backend internships.",
+    title: CONTENT.meta.ogTitle || CONTENT.meta.title,
+    description: CONTENT.meta.ogDescription || CONTENT.meta.description,
     type: "website",
   },
 };
+
+export const viewport: Viewport = { themeColor: "#06070d" };
+
+/**
+ * Runs before first paint, so nothing flashes:
+ * - `?palette=sunset` previews another palette without changing the saved one;
+ * - otherwise a visitor's own pick from the colour switcher is restored;
+ * - the intro animation is armed once per visit (never in /admin or for reduced motion).
+ */
+const HEAD_SCRIPT = [
+  "try{",
+  "var d=document.documentElement;",
+  `var ok=${JSON.stringify(PALETTES.map((p) => p.value))};`,
+  'var admin=location.pathname.indexOf("/admin")>-1;',
+  'var p=new URLSearchParams(location.search).get("palette");',
+  `if(!p&&!admin&&${FEATURES.paletteSwitcher}){try{p=localStorage.getItem("visitor-palette")}catch(e){}}`,
+  "if(ok.indexOf(p)>-1)d.dataset.palette=p;",
+  `if(${FEATURES.intro}&&!admin&&!matchMedia("(prefers-reduced-motion: reduce)").matches){`,
+  'var s=null;try{s=sessionStorage.getItem("intro-seen")}catch(e){}if(!s)d.dataset.intro="play"}',
+  "}catch(e){}",
+].join("");
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${jetbrains.variable} ${grotesk.variable} ${fraunces.variable} h-full antialiased`}
+      data-palette={CONTENT.theme?.palette ?? "ocean"}
+      suppressHydrationWarning
+      className={`${inter.variable} ${sora.variable} ${jetbrains.variable} h-full`}
     >
-      <body className="min-h-full text-fg">{children}</body>
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: customPaletteCss(CONTENT.theme?.custom) }} />
+        <script dangerouslySetInnerHTML={{ __html: HEAD_SCRIPT }} />
+      </head>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

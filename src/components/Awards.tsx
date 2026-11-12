@@ -1,97 +1,95 @@
-import { CO_CURRICULAR, HONORS } from "@/lib/site";
-import Section, { type Accent } from "./Section";
-import Tile from "./Tile";
-
-const ACCENTS: Accent[] = ["gold", "teal", "clay", "brass"];
-
-/** Eight tiles fill three 6-column rows exactly; the cycle keeps any later count defined. */
-const SPANS = [
-  "sm:col-span-2 lg:col-span-3",
-  "sm:col-span-2 lg:col-span-3",
-  "lg:col-span-2",
-  "lg:col-span-2",
-  "lg:col-span-2",
-  "lg:col-span-2",
-  "lg:col-span-2",
-  "lg:col-span-2",
-];
+import Image from "next/image";
+import { CONTENT, CO_CURRICULAR, DISPLAY, FEATURES, HONORS, asset } from "@/lib/site";
+import Certificate from "./Certificate";
+import HonorFlip from "./HonorFlip";
+import Icon from "./Icons";
+import Reveal from "./Reveal";
+import Section from "./Section";
+import ShowMore from "./ShowMore";
+import SpotlightCard from "./SpotlightCard";
 
 export default function Awards() {
   return (
-    <Section
-      id="honors"
-      index="07"
-      title="honors & certs"
-      accent="brass"
-      kicker="what the institution noticed"
-    >
-      <div className="bento">
-        {HONORS.map((item, i) => (
-          <Tile
-            key={item.title + item.issuer}
-            accent={ACCENTS[i % ACCENTS.length]}
-            span={SPANS[i % SPANS.length]}
-            delay={i * 70}
-            className="flex items-start gap-4 p-6 sm:p-7"
-          >
-            <span
-              aria-hidden="true"
-              className="mt-1 shrink-0 text-[0.8rem] text-[var(--accent)]"
-            >
-              {item.kind === "honor" ? "◆" : "▲"}
-            </span>
-            <div className="min-w-0 flex-1">
-              <h3 className="text-[1.02rem] font-bold leading-tight text-fg sm:text-[1.16rem]">
-                {item.title}
-              </h3>
-              <p className="mono mt-2 text-[0.72rem] leading-snug text-muted">{item.issuer}</p>
-              <div className="mt-3 flex flex-wrap items-center gap-2">
-                <p className="mono text-[0.58rem] uppercase tracking-[0.24em] text-[var(--accent)]">
-                  {item.kind === "certification" ? "certification" : "honor"}
-                </p>
-                {item.link && (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="chip mono text-fg/80 hover:text-[var(--accent)]"
-                  >
-                    verify ↗
-                  </a>
-                )}
-              </div>
-            </div>
-            <p className="mono shrink-0 text-right text-[0.82rem] font-bold tabular-nums text-[var(--accent)] sm:text-[0.95rem]">
-              {item.year}
-            </p>
-          </Tile>
-        ))}
+    <Section id="honors">
+      <ShowMore
+        noun="honors & certifications"
+        shown={DISPLAY.honorsShown}
+        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        items={HONORS.map((item, i) => {
+          const honor = item.kind !== "certification";
+          const thumb = item.image || (/\.(png|jpe?g|webp|gif|avif)$/i.test(item.certificate) ? item.certificate : "");
+          if (FEATURES.flipHonors)
+            return (
+              <Reveal key={`${item.title}-${i}`} delay={(i % 3) * 80} className="h-full">
+                <HonorFlip item={item} />
+              </Reveal>
+            );
+          return (
+            <Reveal key={`${item.title}-${i}`} delay={(i % 3) * 80} className="h-full">
+              <SpotlightCard className="lift flex h-full flex-col p-6">
+                <div className="flex items-start gap-4">
+                  {thumb ? (
+                    <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10">
+                      <Image src={asset(thumb)} alt="" fill sizes="56px" className="object-cover" />
+                    </span>
+                  ) : (
+                    <span
+                      className={`grid h-14 w-14 shrink-0 place-items-center rounded-xl text-white shadow-lg transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110 ${
+                        honor ? "tint-4" : "tint-2"
+                      }`}
+                    >
+                      <Icon name={honor ? "trophy" : "award"} size={24} />
+                    </span>
+                  )}
+                  <div className="min-w-0">
+                    <p className={`text-[0.72rem] font-semibold uppercase tracking-wider ${honor ? "text-amber" : "text-a2"}`}>
+                      {honor ? "Honor" : "Certification"}
+                    </p>
+                    <h3 className="display mt-1 font-bold leading-snug text-white">{item.title}</h3>
+                  </div>
+                </div>
+                <p className="mt-4 text-[0.88rem] leading-snug text-fg-soft">{item.issuer}</p>
+                <div className="mt-auto flex items-center justify-between gap-3 pt-4">
+                  <span className="mono text-[0.75rem] text-muted">{item.year !== "—" ? item.year : ""}</span>
+                  <Certificate
+                    file={item.certificate}
+                    link={item.link}
+                    title={item.title}
+                    label={item.certificate ? "Certificate" : "Verify"}
+                  />
+                </div>
+              </SpotlightCard>
+            </Reveal>
+          );
+        })}
+      />
 
-        <Tile
-          accent="gold"
-          lead
-          span="sm:col-span-2 lg:col-span-6"
-          delay={360}
-          className="p-6 sm:p-7"
-        >
-          <h3 className="mono mb-5 flex items-center gap-2.5 text-[0.62rem] uppercase tracking-[0.26em] text-[var(--accent)]">
-            <span className="pulse-dot h-2 w-2 rounded-full bg-[var(--accent)]" />
-            beyond the syllabus
-            <span aria-hidden="true" className="rule ml-3 hidden flex-1 sm:block" />
-          </h3>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CO_CURRICULAR.map((row) => (
-              <div
-                key={row.title}
-                className="rounded-[3px] border border-line bg-[rgba(3,11,20,0.6)] p-4 transition-colors hover:border-brass/50"
-              >
-                <p className="text-[0.9rem] font-semibold leading-snug text-fg/90">{row.title}</p>
-                <p className="mt-1.5 text-[0.8rem] leading-relaxed text-muted">{row.note}</p>
-              </div>
+      {CO_CURRICULAR.length > 0 && (
+        <div className="mt-16">
+          <Reveal>
+            <h3 className="display mb-6 flex items-center justify-center gap-3 text-xl font-bold text-white">
+              <Icon name="users" className="text-a4" /> {CONTENT.coCurricularTitle}
+            </h3>
+          </Reveal>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {CO_CURRICULAR.map((row, i) => (
+              <li key={`${row.title}-${i}`} className="h-full">
+                <Reveal delay={(i % 4) * 70} className="h-full">
+                  <SpotlightCard as="div" className="lift h-full p-5">
+                    <p className="display font-semibold leading-snug text-white">{row.title}</p>
+                    <p className="mt-2 text-[0.86rem] leading-relaxed text-fg-soft">{row.note}</p>
+                    {(row.certificate || row.certificateLink) && (
+                      <div className="mt-4">
+                        <Certificate file={row.certificate} link={row.certificateLink} title={row.title} />
+                      </div>
+                    )}
+                  </SpotlightCard>
+                </Reveal>
+              </li>
             ))}
-          </div>
-        </Tile>
-      </div>
+          </ul>
+        </div>
+      )}
     </Section>
   );
 }

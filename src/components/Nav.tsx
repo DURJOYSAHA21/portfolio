@@ -1,67 +1,68 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FEATURES, NAV_LINKS, PROFILE } from "@/lib/site";
+import { openCommandPalette } from "./CommandPalette";
+import Icon from "./Icons";
 
-const LINKS = [
-  { id: "about", label: "about" },
-  { id: "education", label: "education" },
-  { id: "skills", label: "skills" },
-  { id: "projects", label: "projects" },
-  { id: "competitions", label: "arenas" },
-  { id: "research", label: "research" },
-  { id: "honors", label: "honors" },
-  { id: "contact", label: "contact" },
-];
-
+/** Floating glass pill: monogram, section links with an active highlight, "Hire me". */
 export default function Nav() {
-  const [active, setActive] = useState("about");
-  const [lifted, setLifted] = useState(false);
+  const [active, setActive] = useState("");
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setLifted(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) setActive(visible.target.id);
+        const hit = entries.find((e) => e.isIntersecting);
+        if (hit) setActive(hit.target.id);
       },
-      { rootMargin: "-40% 0px -40% 0px", threshold: [0, 0.2, 0.5, 1] }
+      { rootMargin: "-45% 0px -50% 0px" }
     );
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    LINKS.forEach(({ id }) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-
+    document.querySelectorAll("main section[id]").forEach((s) => observer.observe(s));
     return () => {
       window.removeEventListener("scroll", onScroll);
       observer.disconnect();
     };
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const close = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [open]);
+
+  const monogram = `${PROFILE.first[0] ?? ""}${PROFILE.last[0] ?? ""}`;
+
   return (
-    <header className="fixed inset-x-0 top-0 z-30 pt-3 sm:pt-4">
-      <div className="shell">
+    <header className="fixed inset-x-0 top-0 z-40 flex justify-center px-3 pt-3 sm:pt-4">
       <nav
-        className={`flex w-full items-center gap-3 rounded-[3px] border border-[color-mix(in_srgb,var(--gold)_26%,rgba(245,201,106,0.16))] bg-[rgba(4,14,25,0.86)] px-4 py-2.5 text-xs backdrop-blur-md transition-shadow duration-300 ${
-          lifted ? "shadow-[6px_6px_0_rgba(3,11,20,0.6)]" : ""
+        aria-label="Main"
+        className={`flex w-full max-w-[860px] items-center gap-2 rounded-full border px-2 py-2 transition-all duration-500 ${
+          scrolled || open
+            ? "border-white/10 bg-[rgba(10,11,20,0.72)] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+            : "border-transparent bg-transparent"
         }`}
       >
-        <a href="#top" className="mono shrink-0 text-[0.78rem] font-bold tracking-[0.06em] text-gold">
-          durjoy:~$
+        <a href="#top" className="group flex items-center gap-2.5 rounded-full pr-3" aria-label="Back to top">
+          <span className="display grid h-9 w-9 place-items-center rounded-full tint-1 text-[0.8rem] font-extrabold text-white shadow-[0_0_24px_-4px_rgb(var(--a1-rgb)/0.9)] transition-transform group-hover:rotate-12">
+            {monogram}
+          </span>
+          <span className="display hidden text-[0.95rem] font-semibold text-fg sm:inline">{PROFILE.first}</span>
         </a>
-        <ul className="scrollbar-none -mx-1 flex flex-1 items-center gap-1 overflow-x-auto px-1 sm:justify-end sm:gap-1.5">
-          {LINKS.map(({ id, label }) => (
-            <li key={id} className="shrink-0">
+
+        <ul className="ml-auto hidden items-center gap-1 md:flex">
+          {NAV_LINKS.map(({ id, label }) => (
+            <li key={id}>
               <a
                 href={`#${id}`}
-                className={`mono block whitespace-nowrap rounded-[2px] px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.14em] transition-colors ${
-                  active === id
-                    ? "bg-[color-mix(in_srgb,var(--gold)_18%,transparent)] text-gold shadow-[inset_0_0_0_1px_color-mix(in_srgb,var(--gold)_68%,transparent)]"
-                    : "text-muted hover:bg-white/5 hover:text-fg"
+                aria-current={active === id ? "true" : undefined}
+                className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+                  active === id ? "bg-white/10 text-white" : "text-fg-soft hover:text-white"
                 }`}
               >
                 {label}
@@ -69,8 +70,58 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+
+        {FEATURES.commandPalette && (
+          <button
+            type="button"
+            onClick={openCommandPalette}
+            aria-label="Search (Ctrl+K)"
+            title="Search (Ctrl+K)"
+            className="ml-auto grid h-9 place-items-center rounded-full border border-white/10 px-2.5 text-fg-soft transition-colors hover:border-white/25 hover:text-white md:ml-1"
+          >
+            <span className="flex items-center gap-2">
+              <Icon name="search" size={16} />
+              <kbd className="mono hidden text-[0.68rem] text-muted lg:inline">Ctrl K</kbd>
+            </span>
+          </button>
+        )}
+        <a
+          href="#contact"
+          className={`btn btn-glow !px-4 !py-2 text-sm md:ml-2 ${FEATURES.commandPalette ? "" : "ml-auto"}`}
+        >
+          Hire me
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label="Menu"
+          className="grid h-9 w-9 place-items-center rounded-full text-fg hover:bg-white/10 md:hidden"
+        >
+          <Icon name={open ? "close" : "menu"} />
+        </button>
       </nav>
-      </div>
+
+      {open && (
+        <ul
+          id="mobile-menu"
+          className="glass absolute inset-x-3 top-[4.6rem] flex flex-col gap-1 p-2 md:hidden"
+        >
+          {NAV_LINKS.map(({ id, label }) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                onClick={() => setOpen(false)}
+                className="block rounded-xl px-4 py-3 text-[0.98rem] font-medium text-fg-soft hover:bg-white/10 hover:text-white"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </header>
   );
 }

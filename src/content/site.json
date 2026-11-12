@@ -1,0 +1,730 @@
+{
+  "meta": {
+    "title": "Durjoy Saha — AI/ML student who ships",
+    "description": "Portfolio of Durjoy Saha: audio deepfake and vishing detection research, applied NLP, and LLM tooling. Final-year CSE student in Dhaka, open to ML and backend internships.",
+    "ogTitle": "Durjoy Saha — AI/ML student who ships",
+    "ogDescription": "Audio deepfake detection research, applied NLP and LLM tooling. Final-year CSE student, open to ML and backend internships."
+  },
+  "profile": {
+    "first": "Durjoy",
+    "last": "Saha",
+    "photo": "/durjoy.jpg",
+    "photoAlt": "Durjoy Saha in a navy blazer",
+    "photoPosition": "58% 26%",
+    "cv": "/durjoy-saha-cv.pdf",
+    "role": "Final-year CSE student · AI/ML research and web development · Dhaka",
+    "status": "Open to internships",
+    "roles": [
+      "AI/ML Researcher",
+      "Full-Stack Developer",
+      "Problem Solver"
+    ],
+    "tagline": "I build machine learning that can explain itself — audio deepfake detection, applied NLP, and the small full-stack wrappers that make a model usable by someone who never opens a terminal."
+  },
+  "contact": {
+    "githubUser": "DURJOYSAHA21",
+    "email": "durjoy.saha1115@gmail.com",
+    "phone": "+880 1726 651486",
+    "location": "Block F, Bashundhara R/A, Dhaka-1212",
+    "timezone": "GMT+6 · Dhaka, Bangladesh"
+  },
+  "sections": {
+    "about": {
+      "nav": "About",
+      "title": "About *me*",
+      "kicker": "The short version of who I am and how I work."
+    },
+    "projects": {
+      "nav": "Work",
+      "title": "Selected *work*",
+      "kicker": "Course projects and tools I built for myself."
+    },
+    "research": {
+      "nav": "Research",
+      "title": "Research & *papers*",
+      "kicker": "Papers on record, and the code written for them."
+    },
+    "competitions": {
+      "nav": "",
+      "title": "Hackathons & *contests*",
+      "kicker": "Building under the clock."
+    },
+    "education": {
+      "nav": "Journey",
+      "title": "My *journey*",
+      "kicker": "Where I studied, and how it went."
+    },
+    "skills": {
+      "nav": "Skills",
+      "title": "Skills & *tools*",
+      "kicker": "What I build with."
+    },
+    "honors": {
+      "nav": "",
+      "title": "Honors & *certifications*",
+      "kicker": "Recognition along the way."
+    },
+    "contact": {
+      "nav": "Contact",
+      "title": "Let's *work together*",
+      "kicker": ""
+    },
+    "now": {
+      "nav": "",
+      "title": "What I'm doing *now*",
+      "kicker": "A live snapshot of what has my attention this season."
+    },
+    "github": {
+      "nav": "",
+      "title": "Live on *GitHub*",
+      "kicker": "Pulled straight from GitHub every time the page loads."
+    },
+    "testimonials": {
+      "nav": "",
+      "title": "Words I *live by*",
+      "kicker": "One life, so I try to enjoy every moment of it."
+    }
+  },
+  "stats": [
+    {
+      "auto": "",
+      "value": 4,
+      "decimals": 2,
+      "suffix": "",
+      "label": "CGPA",
+      "note": "BSc in CSE, AIUB"
+    },
+    {
+      "auto": "papers",
+      "value": 0,
+      "decimals": 0,
+      "suffix": "",
+      "label": "Papers",
+      "note": ""
+    },
+    {
+      "auto": "",
+      "value": 100,
+      "decimals": 0,
+      "suffix": "+",
+      "label": "Problems solved",
+      "note": "Codeforces & LeetCode"
+    },
+    {
+      "auto": "",
+      "value": 7,
+      "decimals": 0,
+      "suffix": "",
+      "label": "Languages",
+      "note": "C, C++, Java, Python, SQL, JS, TS"
+    }
+  ],
+  "about": {
+    "headline": "Final-year CSE student in Dhaka, building the kind of machine learning that can *explain itself*.",
+    "paragraphs": [
+      "The way I work is unglamorous. A question becomes a notebook, the notebook becomes a repo, and the repo becomes something a person can actually click. I would rather ship a rough version that works this week than a perfect plan that never leaves the doc.",
+      "It started as web development — complex designs, critical situations, things that had to work in front of users. It ended up in research papers on deepfake detection and chatbots for mental health. Same job either way: build something that holds up when a person depends on it."
+    ],
+    "tags": [
+      "Dhaka · GMT+6",
+      "Final-year CSE",
+      "Open to internships"
+    ],
+    "facts": [
+      {
+        "label": "Studying",
+        "value": "BSc in CSE, final year · AIUB, Dhaka"
+      },
+      {
+        "label": "Focus",
+        "value": "deepfake detection research, applied NLP"
+      },
+      {
+        "label": "Stack",
+        "value": "Python, C++, Java · React, Node.js, Express"
+      },
+      {
+        "label": "Looking for",
+        "value": "a role to use my abilities and grow professionally"
+      }
+    ]
+  },
+  "education": [
+    {
+      "level": "BSc",
+      "school": "American International University–Bangladesh (AIUB)",
+      "degree": "B.Sc. in Computer Science and Engineering",
+      "period": "2023 — 2027 (expected)",
+      "board": "Dhaka",
+      "resultLabel": "CGPA",
+      "result": "4.00 / 4.00",
+      "points": [
+        "Final year of a four-year CSE degree",
+        "Research experience in deepfake detection and applied NLP",
+        "Degree projects: SkillHub (MERN), Zoo Management System (C# / ASP.NET), Restaurant Management System (Java)"
+      ],
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "level": "HSC",
+      "school": "Major General Mahmudul Hasan Adarsha College",
+      "degree": "Higher Secondary Certificate — Science",
+      "period": "2022",
+      "board": "Dhaka Board",
+      "resultLabel": "GPA",
+      "result": "5.00 / 5.00",
+      "points": [
+        "Science group, Dhaka Board"
+      ],
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "level": "SSC",
+      "school": "Bindu Basini Government Boys’ High School",
+      "degree": "Secondary School Certificate — Science",
+      "period": "2020",
+      "board": "Dhaka Board",
+      "resultLabel": "GPA",
+      "result": "5.00 / 5.00",
+      "points": [
+        "Science group, Dhaka Board"
+      ],
+      "certificateLink": "",
+      "certificate": ""
+    }
+  ],
+  "skillsIntro": "Straight off the CV: the languages I write, the front and back end I build with, the databases behind them, the AI/ML side, and the tools plus working habits that actually get a build out the door.",
+  "skills": [
+    {
+      "label": "Languages",
+      "items": [
+        "C",
+        "C++",
+        "Java",
+        "Python",
+        "SQL",
+        "JavaScript",
+        "TypeScript"
+      ]
+    },
+    {
+      "label": "AI / ML",
+      "items": [
+        "NLP",
+        "Machine learning"
+      ]
+    },
+    {
+      "label": "Frontend",
+      "items": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
+      ]
+    },
+    {
+      "label": "Backend",
+      "items": [
+        "TypeScript",
+        "Node.js",
+        "Express"
+      ]
+    },
+    {
+      "label": "Databases",
+      "items": [
+        "MySQL",
+        "SQL Server",
+        "MongoDB"
+      ]
+    },
+    {
+      "label": "Tools & ways of working",
+      "items": [
+        "Git",
+        "GitHub",
+        "Debugging",
+        "Problem solving",
+        "Word",
+        "Excel",
+        "PowerPoint",
+        "Access"
+      ]
+    }
+  ],
+  "builds": [
+    {
+      "title": "SkillHub",
+      "repo": "skillhub_prototype",
+      "track": "course",
+      "period": "2026",
+      "stack": [
+        "FastAPI",
+        "PostgreSQL",
+        "Next.js 14",
+        "Tailwind CSS",
+        "pytest"
+      ],
+      "blurb": "A full-stack learning marketplace: mentors publish courses, learners find, buy and finish them in their own language, and an admin approves courses and runs the platform. Built from the 77-page SRS of our Software Engineering course project, with all 24 functional requirements implemented.\n\nIt includes SkillHub Match, a mentor-matching engine that explains its ranking, and SkillBot, an assistant that answers from the platform's live data. The interface comes in 8 languages, with a right-to-left layout for Arabic. Learners get email-OTP sign-up, simulated payments with PDF receipts, timed quizzes, assignments and a PDF certificate on completion.\n\nDemo accounts for learner, mentor and admin are listed in the GitHub README.",
+      "image": "/uploads/projects/skillhub/01-landing.webp",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [
+        "/uploads/projects/skillhub/02-browse.webp",
+        "/uploads/projects/skillhub/03-course.webp",
+        "/uploads/projects/skillhub/04-match.webp",
+        "/uploads/projects/skillhub/05-skillbot.webp",
+        "/uploads/projects/skillhub/06-learner-hub.webp",
+        "/uploads/projects/skillhub/07-mentor-studio.webp",
+        "/uploads/projects/skillhub/08-admin-console.webp",
+        "/uploads/projects/skillhub/09-arabic-rtl.webp"
+      ],
+      "demo": "https://skillhubprototype-frontend.vercel.app/"
+    },
+    {
+      "title": "HireHub — Job Portal",
+      "repo": "Job-Portal-Live-Demo",
+      "track": "course",
+      "period": "2026",
+      "stack": [
+        "PHP 8",
+        "MySQL",
+        "JavaScript",
+        "AJAX"
+      ],
+      "blurb": "A multi-role job portal: employers post jobs and move applicants through a hiring pipeline, recruiters place candidates for client companies, job seekers search and apply, and an admin moderates the platform. Use it per role (four portals) or as one platform with a single sign-in that works out who you are.\n\nA three-person team project in plain PHP and MySQL, with MVC folders and AJAX filtering. I built the employer and recruiter modules and did the integration and security work (prepared statements, CSRF protection).\n\nDemo accounts for every role are listed in the GitHub README.",
+      "image": "/uploads/projects/hirehub/02-employer-dashboard.webp",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [
+        "/uploads/projects/hirehub/01-landing.webp",
+        "/uploads/projects/hirehub/03-employer-applications.webp",
+        "/uploads/projects/hirehub/04-employer-analytics.webp",
+        "/uploads/projects/hirehub/05-recruiter-dashboard.webp",
+        "/uploads/projects/hirehub/06-recruiter-pipeline.webp",
+        "/uploads/projects/hirehub/07-seeker-browse-jobs.webp",
+        "/uploads/projects/hirehub/08-admin-dashboard.webp",
+        "/uploads/projects/hirehub/09-merged-sign-in.webp"
+      ],
+      "demo": "https://hirehub.infinityfreeapp.com/"
+    },
+    {
+      "title": "JobMatch-BD",
+      "repo": "jobmatch-bd",
+      "track": "personal",
+      "period": "2026",
+      "stack": [
+        "FastAPI",
+        "sentence-transformers",
+        "spaCy",
+        "PostgreSQL",
+        "React",
+        "Tailwind CSS"
+      ],
+      "blurb": "Upload a CV, or fill in a short profile, and JobMatch BD ranks tech jobs in Bangladesh against it. Every result shows why it matched: the skills you have, the ones you're missing, and a score breakdown.\n\nThe score combines semantic similarity (sentence embeddings, so “neural networks” can match “deep learning”) with structured matching of skills, education, experience and location. It fetches live postings, keeps a shortlist, and can email a digest when new jobs score at least 50.\n\nThe API runs on a free server, so the first request after a quiet spell can take about a minute.",
+      "image": "/uploads/projects/jobmatch-bd/02-landing.webp",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [
+        "/uploads/projects/jobmatch-bd/01-matches.webp",
+        "/uploads/projects/jobmatch-bd/03-score-breakdown.webp",
+        "/uploads/projects/jobmatch-bd/04-all-jobs.webp"
+      ],
+      "demo": "https://jobmatch-bd.vercel.app"
+    },
+    {
+      "title": "Luffy — The Unknown Journey",
+      "repo": "Luffy_the_Unknown_Journey-Online",
+      "track": "course",
+      "period": "2026",
+      "stack": [
+        "C++",
+        "OpenGL",
+        "freeglut",
+        "WebAssembly"
+      ],
+      "blurb": "A 2D story adventure for our Computer Graphics course: a boy named Luffy is pulled into the World of Chaos through his game console and has to cross five levels, each with a different kind of gameplay, to beat the Chaos King and get home. Play it in the browser.\n\nEverything on screen is drawn with OpenGL shapes and every sound is generated in code: no images, sprites, sound files or game engine. It runs in the browser through WebAssembly. Techniques include particle systems, a radial torch-light mask, hierarchical modelling, projectile physics, and hand-written DDA line drawing and Cohen–Sutherland clipping.\n\nA five-person team. I made the story, the title screen and cutscenes, and Level 1, the dungeon. The repository holds the playable build; the source code is private.\n\nFan project: the hero is a tribute to Luffy from One Piece (Eiichiro Oda).",
+      "image": "/uploads/projects/luffy/01-title.webp",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [
+        "/uploads/projects/luffy/02-bedroom.webp",
+        "/uploads/projects/luffy/03-portal.webp",
+        "/uploads/projects/luffy/04-dungeon.webp",
+        "/uploads/projects/luffy/05-earthquake.webp",
+        "/uploads/projects/luffy/06-maze.webp",
+        "/uploads/projects/luffy/07-sea.webp",
+        "/uploads/projects/luffy/08-river.webp",
+        "/uploads/projects/luffy/09-volcano.webp",
+        "/uploads/projects/luffy/10-chaos-king.webp",
+        "/uploads/projects/luffy/11-ending-star.webp"
+      ],
+      "demo": "https://durjoysaha21.github.io/Luffy_the_Unknown_Journey-Online/play/"
+    },
+    {
+      "title": "DevVault",
+      "repo": "DevVault",
+      "track": "personal",
+      "period": "2026",
+      "stack": [
+        "C#",
+        "CLI"
+      ],
+      "blurb": "A Windows developer-environment assistant for the command line, written because cloning someone else's repository should not cost an hour of guessing. It reports whether the environment is ready, what kind of project a folder holds, which frameworks and dependencies it uses, where each dependency came from, whether any is declared twice, which local ports are busy, and what to install after a fresh clone.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [],
+      "demo": ""
+    },
+    {
+      "title": "Zoo Management System",
+      "repo": "Zoo-Management",
+      "track": "course",
+      "period": "Feb — May 2025",
+      "stack": [
+        "C#",
+        "WinForms",
+        "SQL Server",
+        "Guna UI",
+        "GMap.NET"
+      ],
+      "blurb": "A desktop app that runs a whole zoo, built for the OOP-II course in C# WinForms on SQL Server: 47 screens over a 27-table database, with separate sides for admins, staff, doctors and visitors.\n\nVisitors sign up with an email OTP, buy tickets and memberships, book events, shop, and pay through a built-in bank system that confirms each transaction with a one-time code. Staff get work schedules, their assigned animals and a live chat. Doctors run checkups, treatments and medical records. Admins manage animals, employees, members, visitors, events and status reports. There is also a map page for getting to the zoo and a video tour.\n\nThe point was to make the object model visible in something that actually runs.",
+      "image": "/uploads/projects/zoo/01-admin-dashboard.webp",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [
+        "/uploads/projects/zoo/02-visitor-home.webp",
+        "/uploads/projects/zoo/03-animal-showcase.webp",
+        "/uploads/projects/zoo/04-animal-profile.webp",
+        "/uploads/projects/zoo/05-buy-tickets.webp",
+        "/uploads/projects/zoo/06-shop.webp",
+        "/uploads/projects/zoo/07-product.webp",
+        "/uploads/projects/zoo/08-getting-here.webp",
+        "/uploads/projects/zoo/09-login.webp"
+      ],
+      "demo": ""
+    },
+    {
+      "title": "Shop Management System",
+      "repo": "Shop-Management",
+      "track": "course",
+      "period": "2026",
+      "stack": [
+        "Java"
+      ],
+      "blurb": "A shop-front exercise in Java: a customer browses laptops and phones and buys them while stock and sales move through the flow. Small on purpose — it was the course build for object-oriented modelling.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [],
+      "demo": ""
+    }
+  ],
+  "arenas": [
+    {
+      "event": "NASA Space Apps Challenge 2026",
+      "kind": "hackathon",
+      "title": "Field Shift",
+      "year": "Oct 2026",
+      "repo": "field-shift",
+      "stack": [
+        "Next.js",
+        "Python",
+        "NASA POWER",
+        "Machine learning"
+      ],
+      "note": "Team Orion's entry, where I was the AI/ML engineer: crop-rotation plans for Bangladeshi farmers built from NASA Earth data (rainfall onset, soil moisture, heat days and greenness), with every recommendation explained. Works in English and Bangla.",
+      "demo": "https://field-shift-tan.vercel.app",
+      "image": "/uploads/projects/field-shift/01-home-en.webp",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "event": "BUP CSE Fest 2026",
+      "kind": "hackathon",
+      "title": "GridWise LLM",
+      "year": "2026",
+      "repo": "gridwise-llm",
+      "stack": [
+        "Gemini",
+        "PuLP",
+        "FastAPI"
+      ],
+      "note": "Built for the preliminary round as Team Byte Force: a public HTTP API that reads a campus operator's notes with Gemini, then hands the numbers to a PuLP optimiser and returns a cost-optimal 24-hour energy schedule. The model interprets the brief — it never gets to fake the arithmetic.",
+      "demo": "https://gridwise-llm-k6k1.onrender.com/docs",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "event": "PSTU IT Carnival 2026",
+      "kind": "datathon",
+      "title": "Financial Risk Prediction",
+      "year": "2026",
+      "repo": "",
+      "stack": [],
+      "note": "Financial risk prediction modelled under datathon time rules, at the datathon run by Patuakhali Science & Technology University. Dataset, model and result are still to be written up.",
+      "demo": "",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "event": "AIUB Programming Contest",
+      "kind": "contest",
+      "title": "Competitive programming",
+      "year": "Mar 2024",
+      "repo": "",
+      "stack": [
+        "C++"
+      ],
+      "note": "Contest rounds in C++ — the same habit behind the 300+ problems solved on Codeforces and LeetCode.",
+      "demo": "",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    }
+  ],
+  "researchSummary": "Three carry a decision already — one accepted and waiting on publication, two already presented. Four more are sitting with reviewers right now. Every entry below is one I can hand a question about.",
+  "research": [
+    {
+      "title": "Explainable and Generalizable Deepfake Detection for Vishing Attack Recognition",
+      "venue": "I-COSTE 2026",
+      "status": "Accepted · not yet published",
+      "year": "2026",
+      "link": "",
+      "note": "Voice-cloning attacks scored on ASVspoof and In-the-Wild with EER and AUC, plus SHAP explanations of what the model actually listened to. I-COSTE 2026: Sustainable Technology for Humanity and Global Impact.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "Using Chatbots for Mental Health Support Among University Students in Bangladesh: An Exploratory Study",
+      "venue": "NBHRC 2025",
+      "status": "Abstract published",
+      "year": "2025",
+      "link": "",
+      "note": "Abstract and poster on chatbot-supported mental health care for Bangladeshi university students, presented at the National Biomed Health ResearchCon held by Dhaka Medical College Research & Academic Club with Bangladesh Society of Medicine.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "Transformational Leadership and Organizational Change in Bangladeshi Higher Education Institutions",
+      "venue": "7th ICIS 2025",
+      "status": "Conference paper presented",
+      "year": "2025",
+      "link": "",
+      "note": "With Protiti Sahajee Prachi and Md. Mortuza Ahmmed, on how leadership style shapes change inside Bangladeshi higher education. Presented at the 7th International Conference on Integrated Sciences, Eastern University, Dhaka.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "PCOSNet: A Lightweight and Explainable Framework for Robust PCOS Detection",
+      "venue": "ICCIT 2026",
+      "status": "under review",
+      "year": "2026",
+      "link": "",
+      "note": "A small framework for PCOS detection, held to two demands at once: stay lightweight and stay explainable.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "Ova-VSSM: VMamba-Inspired Lightweight Architecture for Multi-Class Ovarian Ultrasound Image Classification",
+      "venue": "ICCIT 2026",
+      "status": "under review",
+      "year": "2026",
+      "link": "",
+      "note": "A VMamba-inspired architecture doing multi-class classification on ovarian ultrasound images at a fraction of the usual weight.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "Explainable Fake News Detection with Traditional Machine Learning: Evaluating Text Representations and Dataset Artifacts",
+      "venue": "ICRPSET 2026",
+      "status": "under review",
+      "year": "2026",
+      "link": "",
+      "note": "Fake news detection without a large model: which text representation actually earns the accuracy, and how much of it is a dataset artifact.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    }
+  ],
+  "researchBuilds": [],
+  "honors": [
+    {
+      "title": "Dean’s Award",
+      "issuer": "AIUB",
+      "year": "—",
+      "kind": "honor",
+      "link": "",
+      "image": "",
+      "certificate": ""
+    },
+    {
+      "title": "Certificate of Presentation, abstract and poster",
+      "issuer": "National Biomed Health ResearchCon (NBHRC) 2025 · DMC-RAC with Bangladesh Society of Medicine",
+      "year": "28–29 Aug 2025",
+      "kind": "honor",
+      "link": "",
+      "image": "",
+      "certificate": ""
+    },
+    {
+      "title": "IT Essentials",
+      "issuer": "Cisco Networking Academy",
+      "year": "—",
+      "kind": "certification",
+      "link": "",
+      "image": "",
+      "certificate": ""
+    },
+    {
+      "title": "YUNet International Youth Upskill Summit",
+      "issuer": "Youth Upskill Network · World Youth Skills Day",
+      "year": "18 Jul 2025",
+      "kind": "certification",
+      "link": "",
+      "image": "",
+      "certificate": ""
+    },
+    {
+      "title": "Complete HTML",
+      "issuer": "KnowledgeGate",
+      "year": "22 Aug 2025",
+      "kind": "certification",
+      "link": "https://www.knowledgegate.ai/certificate/B0E59648",
+      "image": "",
+      "certificate": ""
+    },
+    {
+      "title": "Complete CSS",
+      "issuer": "KnowledgeGate",
+      "year": "14 Oct 2025",
+      "kind": "certification",
+      "link": "https://www.knowledgegate.ai/certificate/60E75900",
+      "image": "",
+      "certificate": ""
+    },
+    {
+      "title": "Complete JavaScript",
+      "issuer": "KnowledgeGate",
+      "year": "27 Oct 2025",
+      "kind": "certification",
+      "link": "https://www.knowledgegate.ai/certificate/1E21C7F2",
+      "image": "",
+      "certificate": ""
+    },
+    {
+      "title": "Python 101 for Data Science (PY0101EN)",
+      "issuer": "Cognitive Class · IBM Developer Skills Network",
+      "year": "20 Mar 2026",
+      "kind": "certification",
+      "link": "https://courses.cognitiveclass.ai/certificates/e40915b6e7e1439381383105573d4996",
+      "image": "",
+      "certificate": ""
+    }
+  ],
+  "coCurricularTitle": "Beyond the classroom",
+  "coCurricular": [
+    {
+      "title": "Executive member, Hasimukh Club",
+      "note": "Organized events and coordinated club activities.",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "General member, R&D section — AIUB Computer Club",
+      "note": "Contributed to club projects, technical activities and events.",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "School volunteer",
+      "note": "Community service and school events.",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "Inter-school cricket",
+      "note": "Played competitive tournament cricket.",
+      "certificateLink": "",
+      "certificate": ""
+    }
+  ],
+  "display": {
+    "projectsShown": 6,
+    "papersShown": 6,
+    "honorsShown": 6
+  },
+  "contactCopy": {
+    "headline": "Tell me what you actually need — *the reply is fast*.",
+    "body": "I am looking for ML and backend internships, and I happily take a second pass on an audio or language problem. Research questions, half-built ideas and job posts all count.",
+    "cvTitle": "One page, no fluff"
+  },
+  "theme": {
+    "palette": "ocean",
+    "custom": {
+      "a1": "#38bdf8",
+      "a2": "#22d3ee",
+      "a3": "#fbbf24",
+      "a4": "#34d399"
+    }
+  },
+  "now": {
+    "updated": "November 2026",
+    "intro": "",
+    "items": [
+      {
+        "icon": "flask",
+        "label": "Researching",
+        "text": "Explainable deepfake detection for vishing attacks, and lightweight medical-imaging models for PCOS and ovarian ultrasound."
+      },
+      {
+        "icon": "rocket",
+        "label": "Building",
+        "text": "Full-stack web apps with React, Node.js and MongoDB, and this portfolio with its own admin dashboard."
+      },
+      {
+        "icon": "brain",
+        "label": "Learning",
+        "text": "State-space vision models (Mamba / VMamba) and better ways to explain what a model has learned."
+      },
+      {
+        "icon": "target",
+        "label": "Looking for",
+        "text": "An internship where I can ship ML that real people use."
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "quote": "The purpose of life, after all, is to live it, to taste experience to the utmost, to reach out eagerly and without fear for newer and richer experience.",
+      "name": "Eleanor Roosevelt",
+      "role": "You Learn by Living, 1960",
+      "photo": "",
+      "link": "https://en.wikiquote.org/wiki/Eleanor_Roosevelt"
+    }
+  ],
+  "features": {
+    "intro": true,
+    "tilt": true,
+    "projectDetails": true,
+    "commandPalette": true,
+    "githubStats": true,
+    "flipHonors": true,
+    "now": true,
+    "scrollProgress": true,
+    "cursor": true,
+    "paletteSwitcher": true,
+    "testimonials": true
+  }
+}
