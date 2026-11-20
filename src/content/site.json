@@ -19,7 +19,7 @@
       "Full-Stack Developer",
       "Problem Solver"
     ],
-    "tagline": "I build machine learning that can explain itself — audio deepfake detection, applied NLP, and the small full-stack wrappers that make a model usable by someone who never opens a terminal."
+    "tagline": ""
   },
   "contact": {
     "githubUser": "DURJOYSAHA21",
@@ -120,10 +120,9 @@
     }
   ],
   "about": {
-    "headline": "Final-year CSE student in Dhaka, building the kind of machine learning that can *explain itself*.",
+    "headline": "Final-year CSE student in Dhaka",
     "paragraphs": [
-      "The way I work is unglamorous. A question becomes a notebook, the notebook becomes a repo, and the repo becomes something a person can actually click. I would rather ship a rough version that works this week than a perfect plan that never leaves the doc.",
-      "It started as web development — complex designs, critical situations, things that had to work in front of users. It ended up in research papers on deepfake detection and chatbots for mental health. Same job either way: build something that holds up when a person depends on it."
+      "I'm a Computer Science and Engineering student with a strong passion for Artificial Intelligence, Machine Learning, and Software Engineering. I enjoy exploring complex problems, experimenting with emerging technologies, and turning ideas into practical solutions. Beyond development, I'm actively involved in research, particularly in areas such as Computer Vision, Natural Language Processing, and AI-driven systems. I believe in continuous learning, thoughtful engineering, and building technology that makes a meaningful impact. Always curious, always evolving, and always looking for the next challenge to solve."
     ],
     "tags": [
       "Dhaka · GMT+6",
@@ -749,10 +748,10 @@
     "commandPalette": true,
     "githubStats": true,
     "flipHonors": true,
-    "now": true,
+    "now": false,
     "scrollProgress": true,
     "cursor": true,
     "paletteSwitcher": true,
-    "testimonials": true
+    "testimonials": false
   }
 }
