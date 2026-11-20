@@ -257,34 +257,6 @@
   ],
   "builds": [
     {
-      "title": "Mansion of Lies",
-      "repo": "mansion-of-lies",
-      "track": "personal",
-      "period": "2026",
-      "stack": [
-        "TypeScript",
-        "React",
-        "React Three Fiber",
-        "Google Gemini",
-        "WebLLM",
-        "Cloudflare Workers",
-        "Vitest",
-        "Playwright"
-      ],
-      "blurb": "A first-person 3D murder mystery that runs in the browser. Four AI-played suspects lie and hide secrets. You have three days to question them, catch their contradictions and name the killer, and every night they strike back: evidence gets burned, a threat appears under your door, someone pushes you down the stairs.\n\nGame code owns the truth. Each suspect sees only its own character sheet, a guard stops prompt-injection attempts, and an output filter blocks any reply that leaks a hidden fact. A secret breaks only when you show the right evidence, and the case file is checked so no night can make the case unsolvable. Replies come from Google Gemini through a Cloudflare Worker that keeps the API key off the site, with an in-browser model (WebLLM) as a fallback.\n\n250 unit tests and a Playwright browser suite cover the rules, the AI safety layers and full playthroughs.",
-      "image": "/uploads/projects/mansion-of-lies/03-interrogation.webp",
-      "certificateLink": "",
-      "certificate": "",
-      "gallery": [
-        "/uploads/projects/mansion-of-lies/01-title.webp",
-        "/uploads/projects/mansion-of-lies/02-opening.webp",
-        "/uploads/projects/mansion-of-lies/04-rooms.webp",
-        "/uploads/projects/mansion-of-lies/05-secret-revealed.webp",
-        "/uploads/projects/mansion-of-lies/06-night.webp"
-      ],
-      "demo": "https://durjoysaha21.github.io/mansion-of-lies/"
-    },
-    {
       "title": "SkillHub",
       "repo": "skillhub_prototype",
       "track": "course",
@@ -311,6 +283,30 @@
         "/uploads/projects/skillhub/09-arabic-rtl.webp"
       ],
       "demo": "https://skillhubprototype-frontend.vercel.app/"
+    },
+    {
+      "title": "JobMatch-BD",
+      "repo": "jobmatch-bd",
+      "track": "personal",
+      "period": "2026",
+      "stack": [
+        "FastAPI",
+        "sentence-transformers",
+        "spaCy",
+        "PostgreSQL",
+        "React",
+        "Tailwind CSS"
+      ],
+      "blurb": "Upload a CV, or fill in a short profile, and JobMatch BD ranks tech jobs in Bangladesh against it. Every result shows why it matched: the skills you have, the ones you're missing, and a score breakdown.\n\nThe score combines semantic similarity (sentence embeddings, so “neural networks” can match “deep learning”) with structured matching of skills, education, experience and location. It fetches live postings, keeps a shortlist, and can email a digest when new jobs score at least 50.\n\nThe API runs on a free server, so the first request after a quiet spell can take about a minute.",
+      "image": "/uploads/projects/jobmatch-bd/02-landing.webp",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [
+        "/uploads/projects/jobmatch-bd/01-matches.webp",
+        "/uploads/projects/jobmatch-bd/03-score-breakdown.webp",
+        "/uploads/projects/jobmatch-bd/04-all-jobs.webp"
+      ],
+      "demo": "https://jobmatch-bd.vercel.app"
     },
     {
       "title": "HireHub — Job Portal",
@@ -340,30 +336,6 @@
       "demo": "https://hirehub.infinityfreeapp.com/"
     },
     {
-      "title": "JobMatch-BD",
-      "repo": "jobmatch-bd",
-      "track": "personal",
-      "period": "2026",
-      "stack": [
-        "FastAPI",
-        "sentence-transformers",
-        "spaCy",
-        "PostgreSQL",
-        "React",
-        "Tailwind CSS"
-      ],
-      "blurb": "Upload a CV, or fill in a short profile, and JobMatch BD ranks tech jobs in Bangladesh against it. Every result shows why it matched: the skills you have, the ones you're missing, and a score breakdown.\n\nThe score combines semantic similarity (sentence embeddings, so “neural networks” can match “deep learning”) with structured matching of skills, education, experience and location. It fetches live postings, keeps a shortlist, and can email a digest when new jobs score at least 50.\n\nThe API runs on a free server, so the first request after a quiet spell can take about a minute.",
-      "image": "/uploads/projects/jobmatch-bd/02-landing.webp",
-      "certificateLink": "",
-      "certificate": "",
-      "gallery": [
-        "/uploads/projects/jobmatch-bd/01-matches.webp",
-        "/uploads/projects/jobmatch-bd/03-score-breakdown.webp",
-        "/uploads/projects/jobmatch-bd/04-all-jobs.webp"
-      ],
-      "demo": "https://jobmatch-bd.vercel.app"
-    },
-    {
       "title": "Luffy — The Unknown Journey",
       "repo": "Luffy_the_Unknown_Journey-Online",
       "track": "course",
@@ -391,6 +363,34 @@
         "/uploads/projects/luffy/11-ending-star.webp"
       ],
       "demo": "https://durjoysaha21.github.io/Luffy_the_Unknown_Journey-Online/play/"
+    },
+    {
+      "title": "Mansion of Lies",
+      "repo": "mansion-of-lies",
+      "track": "personal",
+      "period": "2026",
+      "stack": [
+        "TypeScript",
+        "React",
+        "React Three Fiber",
+        "Google Gemini",
+        "WebLLM",
+        "Cloudflare Workers",
+        "Vitest",
+        "Playwright"
+      ],
+      "blurb": "A first-person 3D murder mystery that runs in the browser. Four AI-played suspects lie and hide secrets. You have three days to question them, catch their contradictions and name the killer, and every night they strike back: evidence gets burned, a threat appears under your door, someone pushes you down the stairs.\n\nGame code owns the truth. Each suspect sees only its own character sheet, a guard stops prompt-injection attempts, and an output filter blocks any reply that leaks a hidden fact. A secret breaks only when you show the right evidence, and the case file is checked so no night can make the case unsolvable. Replies come from Google Gemini through a Cloudflare Worker that keeps the API key off the site, with an in-browser model (WebLLM) as a fallback.\n\n250 unit tests and a Playwright browser suite cover the rules, the AI safety layers and full playthroughs.",
+      "image": "/uploads/projects/mansion-of-lies/03-interrogation.webp",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [
+        "/uploads/projects/mansion-of-lies/01-title.webp",
+        "/uploads/projects/mansion-of-lies/02-opening.webp",
+        "/uploads/projects/mansion-of-lies/04-rooms.webp",
+        "/uploads/projects/mansion-of-lies/05-secret-revealed.webp",
+        "/uploads/projects/mansion-of-lies/06-night.webp"
+      ],
+      "demo": "https://durjoysaha21.github.io/mansion-of-lies/"
     },
     {
       "title": "Zoo Management System",
