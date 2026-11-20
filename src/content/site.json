@@ -530,12 +530,23 @@
       "certificate": ""
     },
     {
-      "title": "Using Chatbots for Mental Health Support Among University Students in Bangladesh: An Exploratory Study",
-      "venue": "NBHRC 2025",
-      "status": "Abstract published",
-      "year": "2025",
+      "title": "PCOSNet: A Lightweight and Explainable Framework for Robust PCOS Detection",
+      "venue": "ICCIT 2026",
+      "status": "Accepted · not yet published",
+      "year": "2026",
       "link": "",
-      "note": "Abstract and poster on chatbot-supported mental health care for Bangladeshi university students, presented at the National Biomed Health ResearchCon held by Dhaka Medical College Research & Academic Club with Bangladesh Society of Medicine.",
+      "note": "A small framework for PCOS detection, held to two demands at once: stay lightweight and stay explainable.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": ""
+    },
+    {
+      "title": "Explainable Fake News Detection with Traditional Machine Learning: Evaluating Text Representations and Dataset Artifacts",
+      "venue": "ICRPSET 2026",
+      "status": "Accepted · not yet published",
+      "year": "2026",
+      "link": "",
+      "note": "Fake news detection without a large model: which text representation actually earns the accuracy, and how much of it is a dataset artifact.",
       "image": "",
       "certificateLink": "",
       "certificate": ""
@@ -552,12 +563,12 @@
       "certificate": ""
     },
     {
-      "title": "PCOSNet: A Lightweight and Explainable Framework for Robust PCOS Detection",
-      "venue": "ICCIT 2026",
-      "status": "under review",
-      "year": "2026",
+      "title": "Using Chatbots for Mental Health Support Among University Students in Bangladesh: An Exploratory Study",
+      "venue": "NBHRC 2025",
+      "status": "Abstract published",
+      "year": "2025",
       "link": "",
-      "note": "A small framework for PCOS detection, held to two demands at once: stay lightweight and stay explainable.",
+      "note": "Abstract and poster on chatbot-supported mental health care for Bangladeshi university students, presented at the National Biomed Health ResearchCon held by Dhaka Medical College Research & Academic Club with Bangladesh Society of Medicine.",
       "image": "",
       "certificateLink": "",
       "certificate": ""
@@ -569,17 +580,6 @@
       "year": "2026",
       "link": "",
       "note": "A VMamba-inspired architecture doing multi-class classification on ovarian ultrasound images at a fraction of the usual weight.",
-      "image": "",
-      "certificateLink": "",
-      "certificate": ""
-    },
-    {
-      "title": "Explainable Fake News Detection with Traditional Machine Learning: Evaluating Text Representations and Dataset Artifacts",
-      "venue": "ICRPSET 2026",
-      "status": "under review",
-      "year": "2026",
-      "link": "",
-      "note": "Fake news detection without a large model: which text representation actually earns the accuracy, and how much of it is a dataset artifact.",
       "image": "",
       "certificateLink": "",
       "certificate": ""
