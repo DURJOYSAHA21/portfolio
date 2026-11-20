@@ -393,22 +393,6 @@
       "demo": "https://durjoysaha21.github.io/Luffy_the_Unknown_Journey-Online/play/"
     },
     {
-      "title": "DevVault",
-      "repo": "DevVault",
-      "track": "personal",
-      "period": "2026",
-      "stack": [
-        "C#",
-        "CLI"
-      ],
-      "blurb": "A Windows developer-environment assistant for the command line, written because cloning someone else's repository should not cost an hour of guessing. It reports whether the environment is ready, what kind of project a folder holds, which frameworks and dependencies it uses, where each dependency came from, whether any is declared twice, which local ports are busy, and what to install after a fresh clone.",
-      "image": "",
-      "certificateLink": "",
-      "certificate": "",
-      "gallery": [],
-      "demo": ""
-    },
-    {
       "title": "Zoo Management System",
       "repo": "Zoo-Management",
       "track": "course",
@@ -434,6 +418,22 @@
         "/uploads/projects/zoo/08-getting-here.webp",
         "/uploads/projects/zoo/09-login.webp"
       ],
+      "demo": ""
+    },
+    {
+      "title": "DevVault",
+      "repo": "DevVault",
+      "track": "personal",
+      "period": "2026",
+      "stack": [
+        "C#",
+        "CLI"
+      ],
+      "blurb": "A Windows developer-environment assistant for the command line, written because cloning someone else's repository should not cost an hour of guessing. It reports whether the environment is ready, what kind of project a folder holds, which frameworks and dependencies it uses, where each dependency came from, whether any is declared twice, which local ports are busy, and what to install after a fresh clone.",
+      "image": "",
+      "certificateLink": "",
+      "certificate": "",
+      "gallery": [],
       "demo": ""
     },
     {
