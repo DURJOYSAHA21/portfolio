@@ -154,6 +154,7 @@ export type Features = {
   commandPalette: boolean;
   githubStats: boolean;
   flipHonors: boolean;
+  photoBadges: boolean;
   now: boolean;
   scrollProgress: boolean;
   cursor: boolean;
@@ -168,6 +169,7 @@ export const DEFAULT_FEATURES: Features = {
   commandPalette: true,
   githubStats: true,
   flipHonors: true,
+  photoBadges: true,
   now: true,
   scrollProgress: true,
   cursor: true,

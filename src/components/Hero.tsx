@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { CONTACT, CONTENT, PAPER_TOTALS, PROFILE, asset } from "@/lib/site";
+import { CONTACT, CONTENT, FEATURES, PAPER_TOTALS, PROFILE, asset } from "@/lib/site";
 import Icon from "./Icons";
 import Typewriter from "./Typewriter";
 
-/** Two floating badges beside the portrait, taken from the first stats. */
-const BADGES = CONTENT.stats.slice(0, 2).map((s) => ({
+/** Two floating badges beside the portrait, taken from the first stats (/admin → Extra features). */
+const BADGES = !FEATURES.photoBadges ? [] : CONTENT.stats.slice(0, 2).map((s) => ({
   value:
     s.auto === "papers"
       ? String(PAPER_TOTALS.submitted)

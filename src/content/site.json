@@ -759,6 +759,7 @@
     "commandPalette": true,
     "githubStats": true,
     "flipHonors": true,
+    "photoBadges": false,
     "now": false,
     "scrollProgress": true,
     "cursor": true,

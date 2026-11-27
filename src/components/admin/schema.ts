@@ -749,6 +749,7 @@ export const PAGES: Page[] = [
           { key: "projectDetails", label: "Project pop-up", type: "toggle", hint: "Clicking a project opens a full view: screenshot gallery, full description, stack and links." },
           { key: "commandPalette", label: "Search (Ctrl + K)", type: "toggle", hint: "A search box for every project, paper and section, plus quick actions. Opens with Ctrl+K, / or the search button." },
           { key: "paletteSwitcher", label: "Visitor colour switcher", type: "toggle", hint: "A small colour button (bottom-left) lets visitors try your palettes. Their pick stays in their own browser." },
+          { key: "photoBadges", label: "Badges beside the photo", type: "toggle", hint: "Two floating cards next to your portrait showing your first two stats (e.g. CGPA and papers)." },
           { key: "flipHonors", label: "Flip cards for honors", type: "toggle", hint: "Honor cards flip over to show the certificate photo." },
         ],
       },
