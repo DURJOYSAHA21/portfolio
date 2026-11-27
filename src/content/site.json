@@ -468,7 +468,7 @@
       "demo": "https://field-shift-tan.vercel.app",
       "image": "/uploads/projects/field-shift/01-home-en.webp",
       "certificateLink": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/nasa-space-apps-2026.webp"
     },
     {
       "event": "BUP CSE Fest 2026",
@@ -485,7 +485,7 @@
       "demo": "https://gridwise-llm-k6k1.onrender.com/docs",
       "image": "",
       "certificateLink": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/bup-cse-fest-2026.webp"
     },
     {
       "event": "PSTU IT Carnival 2026",
@@ -498,7 +498,7 @@
       "demo": "",
       "image": "",
       "certificateLink": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/pstu-it-carnival-2026-datathon.webp"
     },
     {
       "event": "AIUB Programming Contest",
@@ -527,7 +527,7 @@
       "note": "Voice-cloning attacks scored on ASVspoof and In-the-Wild with EER and AUC, plus SHAP explanations of what the model actually listened to. I-COSTE 2026: Sustainable Technology for Humanity and Global Impact.",
       "image": "",
       "certificateLink": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/i-coste-2026-presentation.webp"
     },
     {
       "title": "PCOSNet: A Lightweight and Explainable Framework for Robust PCOS Detection",
@@ -560,7 +560,7 @@
       "note": "With Protiti Sahajee Prachi and Md. Mortuza Ahmmed, on how leadership style shapes change inside Bangladeshi higher education. Presented at the 7th International Conference on Integrated Sciences, Eastern University, Dhaka.",
       "image": "",
       "certificateLink": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/icis-2025-paper-presenter.webp"
     },
     {
       "title": "Using Chatbots for Mental Health Support Among University Students in Bangladesh: An Exploratory Study",
@@ -571,7 +571,7 @@
       "note": "Abstract and poster on chatbot-supported mental health care for Bangladeshi university students, presented at the National Biomed Health ResearchCon held by Dhaka Medical College Research & Academic Club with Bangladesh Society of Medicine.",
       "image": "",
       "certificateLink": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/nbhrc-2025-presentation.webp"
     },
     {
       "title": "Ova-VSSM: VMamba-Inspired Lightweight Architecture for Multi-Class Ovarian Ultrasound Image Classification",
@@ -588,13 +588,13 @@
   "researchBuilds": [],
   "honors": [
     {
-      "title": "Dean’s Award",
-      "issuer": "AIUB",
-      "year": "—",
+      "title": "Dean’s List Honors",
+      "issuer": "AIUB · Faculty of Science and Technology · GPA 4.00, Fall 2024–25",
+      "year": "26 Jun 2025",
       "kind": "honor",
       "link": "",
       "image": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/deans-list-fall-2024-25.webp"
     },
     {
       "title": "Certificate of Presentation, abstract and poster",
@@ -603,7 +603,7 @@
       "kind": "honor",
       "link": "",
       "image": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/nbhrc-2025-presentation.webp"
     },
     {
       "title": "IT Essentials",
@@ -621,7 +621,7 @@
       "kind": "certification",
       "link": "",
       "image": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/yunet-summit-2025.webp"
     },
     {
       "title": "Complete HTML",
@@ -630,7 +630,7 @@
       "kind": "certification",
       "link": "https://www.knowledgegate.ai/certificate/B0E59648",
       "image": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/knowledgegate-html.webp"
     },
     {
       "title": "Complete CSS",
@@ -639,7 +639,7 @@
       "kind": "certification",
       "link": "https://www.knowledgegate.ai/certificate/60E75900",
       "image": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/knowledgegate-css.webp"
     },
     {
       "title": "Complete JavaScript",
@@ -648,7 +648,7 @@
       "kind": "certification",
       "link": "https://www.knowledgegate.ai/certificate/1E21C7F2",
       "image": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/knowledgegate-javascript.webp"
     },
     {
       "title": "Python 101 for Data Science (PY0101EN)",
@@ -657,7 +657,7 @@
       "kind": "certification",
       "link": "https://courses.cognitiveclass.ai/certificates/e40915b6e7e1439381383105573d4996",
       "image": "",
-      "certificate": ""
+      "certificate": "/uploads/certificates/python-101-data-science.webp"
     }
   ],
   "coCurricularTitle": "Beyond the classroom",
@@ -685,6 +685,18 @@
       "note": "Played competitive tournament cricket.",
       "certificateLink": "",
       "certificate": ""
+    },
+    {
+      "title": "Volunteer, AIUB Cyber Gaming Fest 2025",
+      "note": "Certificate of appreciation from the AIUB Computer Club and the Office of Student Affairs.",
+      "certificateLink": "",
+      "certificate": "/uploads/certificates/aiub-cyber-gaming-fest-2025.webp"
+    },
+    {
+      "title": "Finisher, Run Fusion 2.0",
+      "note": "Completed the 7.3 km run at Hatirjheel, Dhaka, organized by BRAC University Adventure Club (January 2026).",
+      "certificateLink": "",
+      "certificate": "/uploads/certificates/run-fusion-2.webp"
     }
   ],
   "display": {
