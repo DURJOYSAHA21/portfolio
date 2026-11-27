@@ -110,28 +110,38 @@ export default function Research() {
   );
 }
 
-/** Compact paper card: slim cover banner carrying the status, then title, short note, actions. */
+/**
+ * Paper card: a status-coloured rule on top, then icon + venue + status, title, short note, actions.
+ * An uploaded cover image (/admin → Papers) still shows above it; otherwise there is no picture.
+ */
 function PaperCard({ paper }: { paper: Paper }) {
   const pending = isUnderReview(paper);
+  const ink = pending ? "var(--amber-ink)" : "var(--green-ink)";
   return (
     <SpotlightCard className="lift flex h-full flex-col overflow-hidden">
-      <div className="relative">
-        <Cover title={paper.title} image={paper.image} icon="flask" compact banner className="h-20 w-full" />
+      {paper.image ? (
+        <Cover title={paper.title} image={paper.image} icon="flask" compact className="h-28 w-full" />
+      ) : (
+        <span aria-hidden="true" className="h-1 w-full" style={{ background: ink }} />
+      )}
+      <div className="flex flex-1 flex-col p-5">
+        <div className="flex items-center gap-3">
+          <span className="tint-1 grid h-9 w-9 shrink-0 place-items-center rounded-lg text-white">
+            <Icon name="flask" size={16} />
+          </span>
+          <p className="mono min-w-0 flex-1 truncate text-[0.72rem] text-muted">
+            {paper.venue}
+            {paper.year && !paper.venue.includes(paper.year) && <> · {paper.year}</>}
+          </p>
+        </div>
         <span
-          className={`absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.7rem] font-semibold backdrop-blur-md ${
-            pending ? "border-amber/40 bg-black/50 text-amber" : "border-green/40 bg-black/50 text-green"
-          }`}
+          className="mt-4 inline-flex items-center gap-1.5 self-start rounded-full border px-2.5 py-0.5 text-[0.7rem] font-semibold"
+          style={{ color: ink, borderColor: `color-mix(in srgb, ${ink} 35%, transparent)`, background: `color-mix(in srgb, ${ink} 9%, transparent)` }}
         >
-          <span className={`h-1.5 w-1.5 rounded-full ${pending ? "animate-pulse bg-amber" : "bg-green"}`} />
+          <span className={`h-1.5 w-1.5 rounded-full ${pending ? "animate-pulse" : ""}`} style={{ background: ink }} />
           <span className="inline-block first-letter:uppercase">{paper.status || "Under review"}</span>
         </span>
-      </div>
-      <div className="flex flex-1 flex-col p-5">
-        <p className="mono text-[0.72rem] text-muted">
-          {paper.venue}
-          {paper.year && !paper.venue.includes(paper.year) && <> · {paper.year}</>}
-        </p>
-        <h3 className="display mt-1.5 text-[0.98rem] font-bold leading-snug text-fg">{paper.title}</h3>
+        <h3 className="display mt-3 text-[0.98rem] font-bold leading-snug text-fg">{paper.title}</h3>
         {paper.note && (
           <Clamp text={paper.note} lines={3} className="mt-2 text-[0.85rem] leading-relaxed text-fg-soft" />
         )}
