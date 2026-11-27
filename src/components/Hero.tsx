@@ -94,7 +94,11 @@ export default function Hero() {
                   priority
                   sizes="(min-width: 1024px) 400px, 78vw"
                   className="object-cover"
-                  style={{ objectPosition: PROFILE.photoPosition || "50% 30%" }}
+                  style={{
+                    objectPosition: PROFILE.photoPosition || "50% 30%",
+                    transform: `scale(${Math.max(1, PROFILE.photoZoom || 1)})`,
+                    transformOrigin: PROFILE.photoPosition || "50% 30%",
+                  }}
                 />
               </div>
             </div>

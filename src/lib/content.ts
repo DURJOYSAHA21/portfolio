@@ -184,6 +184,8 @@ export type SiteContent = {
     photoAlt: string;
     /** CSS object-position for the portrait crop, e.g. "58% 26%". */
     photoPosition: string;
+    /** Zoom into the portrait: 1 = as uploaded, 1.5 = 50% closer. Zooms toward photoPosition. */
+    photoZoom?: number;
     cv: string;
     role: string;
     status: string;

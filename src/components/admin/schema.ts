@@ -119,6 +119,13 @@ export const PAGES: Page[] = [
             placeholder: "58% 26%",
             hint: "Horizontal% vertical% — which part of the photo stays in frame.",
           },
+          {
+            key: "photoZoom",
+            label: "Photo zoom",
+            type: "number",
+            step: 0.05,
+            hint: "1 = the photo as uploaded. Higher brings it closer (1.3 = 30% closer), zooming toward the focus point.",
+          },
           { key: "cv", label: "CV (PDF)", type: "file", accept: "application/pdf", kind: "pdf", wide: true },
         ],
       },
