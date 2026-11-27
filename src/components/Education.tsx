@@ -35,7 +35,7 @@ export default function Education() {
   return (
     <Section id="education">
       <ol ref={wrap} className="relative mx-auto max-w-4xl space-y-8 pl-10 sm:pl-16">
-        <span aria-hidden="true" className="absolute bottom-2 left-[15px] top-2 w-[2px] rounded-full bg-white/10 sm:left-[23px]" />
+        <span aria-hidden="true" className="absolute bottom-2 left-[15px] top-2 w-[2px] rounded-full bg-fg/10 sm:left-[23px]" />
         <span
           aria-hidden="true"
           className="absolute left-[15px] top-2 w-[2px] rounded-full bg-[linear-gradient(180deg,var(--a1),var(--a2),var(--a4))] shadow-[0_0_14px_rgb(var(--a1-rgb)/0.9)] transition-[height] duration-150 sm:left-[23px]"
@@ -55,16 +55,16 @@ export default function Education() {
               <SpotlightCard as="div" className="lift p-6 sm:p-7">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <span className="mono inline-block rounded-md bg-white/10 px-2 py-0.5 text-[0.72rem] font-semibold text-a2">
+                    <span className="mono inline-block rounded-md bg-fg/10 px-2 py-0.5 text-[0.72rem] font-semibold text-a2">
                       {edu.level}
                     </span>
-                    <h3 className="display mt-2 text-[1.2rem] font-bold leading-snug text-white">{edu.degree}</h3>
+                    <h3 className="display mt-2 text-[1.2rem] font-bold leading-snug text-fg">{edu.degree}</h3>
                     <p className="mt-1 text-[0.95rem] text-fg-soft">
                       {edu.school}
                       {edu.board && <span className="text-muted"> · {edu.board}</span>}
                     </p>
                   </div>
-                  <span className="mono shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.75rem] text-fg-soft">
+                  <span className="mono shrink-0 rounded-full border border-fg/10 bg-fg/5 px-3 py-1 text-[0.75rem] text-fg-soft">
                     {edu.period}
                   </span>
                 </div>

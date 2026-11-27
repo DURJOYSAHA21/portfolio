@@ -34,8 +34,8 @@ export default function Contact() {
         <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[28px] p-[1.5px]">
           {/* spinning gradient border */}
           <div className="spin-slow absolute left-1/2 top-1/2 aspect-square w-[160%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_0deg,var(--a1)_60deg,var(--a2)_120deg,transparent_180deg,transparent_360deg)]" />
-          <div className="relative rounded-[27px] bg-[radial-gradient(ellipse_at_top,var(--deep),#0a0b14_70%)] px-6 py-12 text-center sm:px-14 sm:py-16">
-            <p className="display text-[clamp(1.6rem,4vw,2.6rem)] font-bold leading-tight tracking-tight text-white">
+          <div className="relative rounded-[27px] bg-[radial-gradient(ellipse_at_top,var(--deep),var(--bg-2)_70%)] px-6 py-12 text-center sm:px-14 sm:py-16">
+            <p className="display text-[clamp(1.6rem,4vw,2.6rem)] font-bold leading-tight tracking-tight text-fg">
               <Highlight text={CONTENT.contactCopy.headline} />
             </p>
             {CONTENT.contactCopy.body && (
@@ -57,11 +57,11 @@ export default function Contact() {
         {details.map((d, i) => {
           const body = (
             <>
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-a2 transition-colors group-hover:bg-[linear-gradient(135deg,var(--b1),var(--a1))] group-hover:text-white">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-fg/5 text-a2 transition-colors group-hover:bg-[linear-gradient(135deg,var(--b1),var(--a1))] group-hover:text-white">
                 <Icon name={d.icon} size={18} />
               </span>
               <span className="mt-4 block text-[0.75rem] font-semibold uppercase tracking-wider text-muted">{d.label}</span>
-              <span className="mt-1 block break-words text-[0.92rem] font-medium text-white">{d.value}</span>
+              <span className="mt-1 block break-words text-[0.92rem] font-medium text-fg">{d.value}</span>
               {d.note && <span className="mt-0.5 block text-[0.78rem] text-muted">{d.note}</span>}
             </>
           );

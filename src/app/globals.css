@@ -3,6 +3,100 @@
 /* ---------------------------------------------------------------- tokens */
 
 :root {
+  --bg: #f4f7fc;
+  --bg-2: #ffffff;
+  --surface: rgba(255, 255, 255, 0.7);
+  --surface-strong: rgba(255, 255, 255, 0.9);
+  --fg: #0f1b2d;
+  --fg-soft: #334155;
+  --muted: #5b6b82;
+  --line: rgba(15, 40, 80, 0.1);
+  --line-strong: rgba(15, 40, 80, 0.18);
+  /* status colours stay fixed whatever the palette */
+  --amber: #fbbf24;
+  --green: #34d399;
+  /* surfaces (the -dark palettes below swap these) */
+  --page: linear-gradient(180deg, #ffffff 0%, var(--bg) 35%, color-mix(in srgb, var(--glow1) 35%, var(--bg)) 100%) fixed;
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72));
+  --glass-shadow: 0 1px 2px rgba(15, 40, 80, 0.04), 0 12px 32px -16px rgba(15, 40, 80, 0.16);
+  --chip-bg: rgba(255, 255, 255, 0.7);
+  --btn-bg: rgba(255, 255, 255, 0.8);
+  --btn-bg-hover: #fff;
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --grid-line: rgba(15, 40, 80, 0.035);
+  color-scheme: light;
+}
+
+/*
+ * Colour palettes — chosen in /admin → Theme (site.json → theme.palette), applied
+ * as <html data-palette>. --a1..--a4 are the accents (with -rgb twins for alpha),
+ * --b1..--b3 darker shades for white-text buttons, --glow1..3 the pale background glows.
+ * Accents are dark enough to read as text on the light background.
+ */
+:root,
+[data-palette="ocean"] {
+  --a1: #1d4ed8;
+  --a1-rgb: 29 78 216;
+  --a2: #0369a1;
+  --a2-rgb: 3 105 161;
+  --a3: #b45309;
+  --a4: #047857;
+  --b1: #1e40af;
+  --b2: #075985;
+  --b3: #065f46;
+  --glow1: #93c5fd;
+  --glow2: #a5f3fc;
+  --glow3: #c7d2fe;
+  --deep: #dbeafe;
+}
+[data-palette="aurora"] {
+  --a1: #6d28d9;
+  --a1-rgb: 109 40 217;
+  --a2: #1d4ed8;
+  --a2-rgb: 29 78 216;
+  --a3: #be185d;
+  --a4: #b45309;
+  --b1: #5b21b6;
+  --b2: #1e40af;
+  --b3: #9d174d;
+  --glow1: #ddd6fe;
+  --glow2: #bfdbfe;
+  --glow3: #fbcfe8;
+  --deep: #ede9fe;
+}
+[data-palette="sunset"] {
+  --a1: #c2410c;
+  --a1-rgb: 194 65 12;
+  --a2: #be123c;
+  --a2-rgb: 190 18 60;
+  --a3: #a16207;
+  --a4: #be185d;
+  --b1: #9a3412;
+  --b2: #9f1239;
+  --b3: #854d0e;
+  --glow1: #fed7aa;
+  --glow2: #fecdd3;
+  --glow3: #fef08a;
+  --deep: #ffedd5;
+}
+[data-palette="emerald"] {
+  --a1: #047857;
+  --a1-rgb: 4 120 87;
+  --a2: #0e7490;
+  --a2-rgb: 14 116 144;
+  --a3: #4d7c0f;
+  --a4: #0f766e;
+  --b1: #065f46;
+  --b2: #155e75;
+  --b3: #3f6212;
+  --glow1: #a7f3d0;
+  --glow2: #a5f3fc;
+  --glow3: #d9f99d;
+  --deep: #d1fae5;
+}
+
+/* Dark variants: the original dark look, kept as options in /admin → Theme */
+[data-palette$="-dark"] {
   --bg: #06070d;
   --bg-2: #0b0d18;
   --surface: rgba(255, 255, 255, 0.035);
@@ -12,19 +106,17 @@
   --muted: #8b8fa6;
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.16);
-  /* status colours stay fixed whatever the palette */
-  --amber: #fbbf24;
-  --green: #34d399;
+  --page: var(--bg);
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)), rgba(11, 13, 24, 0.6);
+  --glass-shadow: none;
+  --chip-bg: rgba(255, 255, 255, 0.04);
+  --btn-bg: rgba(255, 255, 255, 0.04);
+  --btn-bg-hover: rgba(255, 255, 255, 0.08);
+  --nav-bg: rgba(10, 11, 20, 0.72);
+  --grid-line: rgba(255, 255, 255, 0.025);
   color-scheme: dark;
 }
-
-/*
- * Colour palettes — chosen in /admin → Theme (site.json → theme.palette), applied
- * as <html data-palette>. --a1..--a4 are the accents (with -rgb twins for alpha),
- * --b1..--b3 darker shades for white-text buttons, --glow1..3 the background glows.
- */
-:root,
-[data-palette="ocean"] {
+[data-palette="ocean-dark"] {
   --a1: #38bdf8;
   --a1-rgb: 56 189 248;
   --a2: #22d3ee;
@@ -39,7 +131,7 @@
   --glow3: #b45309;
   --deep: #0a1b2c;
 }
-[data-palette="aurora"] {
+[data-palette="aurora-dark"] {
   --a1: #a78bfa;
   --a1-rgb: 167 139 250;
   --a2: #22d3ee;
@@ -54,7 +146,7 @@
   --glow3: #be185d;
   --deep: #1a1433;
 }
-[data-palette="sunset"] {
+[data-palette="sunset-dark"] {
   --a1: #fb923c;
   --a1-rgb: 251 146 60;
   --a2: #fb7185;
@@ -69,7 +161,7 @@
   --glow3: #a16207;
   --deep: #2a1410;
 }
-[data-palette="emerald"] {
+[data-palette="emerald-dark"] {
   --a1: #34d399;
   --a1-rgb: 52 211 153;
   --a2: #22d3ee;
@@ -90,10 +182,10 @@
   --b1: color-mix(in srgb, var(--a1) 50%, black);
   --b2: color-mix(in srgb, var(--a2) 50%, black);
   --b3: color-mix(in srgb, var(--a4) 50%, black);
-  --glow1: color-mix(in srgb, var(--a1) 55%, black);
-  --glow2: color-mix(in srgb, var(--a2) 50%, black);
-  --glow3: color-mix(in srgb, var(--a3) 45%, black);
-  --deep: color-mix(in srgb, var(--a1) 14%, #06070d);
+  --glow1: color-mix(in srgb, var(--a1) 40%, white);
+  --glow2: color-mix(in srgb, var(--a2) 35%, white);
+  --glow3: color-mix(in srgb, var(--a3) 30%, white);
+  --deep: color-mix(in srgb, var(--a1) 14%, white);
 }
 
 :root {
@@ -131,7 +223,7 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background: var(--page);
   color: var(--fg);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -139,8 +231,8 @@ body {
 }
 
 ::selection {
-  background: rgb(var(--a1-rgb) / 0.45);
-  color: #fff;
+  background: rgb(var(--a1-rgb) / 0.2);
+  color: var(--fg);
 }
 
 :focus-visible {
@@ -181,9 +273,8 @@ body {
     position: relative;
     border: 1px solid var(--line);
     border-radius: 20px;
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
-      rgba(11, 13, 24, 0.6);
+    background: var(--glass);
+    box-shadow: var(--glass-shadow);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s ease, box-shadow 0.35s ease;
@@ -212,7 +303,7 @@ body {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 0%), rgb(var(--a1-rgb) / 0.12), transparent 45%);
+    background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 0%), rgb(var(--a1-rgb) / 0.06), transparent 45%);
     opacity: 0;
     transition: opacity 0.35s ease;
     pointer-events: none;
@@ -223,7 +314,7 @@ body {
   }
   .lift:hover {
     transform: translateY(-6px);
-    box-shadow: 0 30px 60px -30px rgb(var(--a1-rgb) / 0.5);
+    box-shadow: 0 30px 60px -30px rgb(var(--a1-rgb) / 0.35);
   }
 
   .chip {
@@ -236,13 +327,13 @@ body {
     font-size: 0.74rem;
     line-height: 1.35;
     color: var(--fg-soft);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--chip-bg);
     transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
   }
   .chip:hover {
-    border-color: rgb(var(--a1-rgb) / 0.7);
-    color: #fff;
-    background: rgb(var(--a1-rgb) / 0.14);
+    border-color: rgb(var(--a1-rgb) / 0.6);
+    color: var(--a1);
+    background: rgb(var(--a1-rgb) / 0.08);
   }
 
   .btn {
@@ -256,14 +347,14 @@ body {
     font-size: 0.92rem;
     font-weight: 600;
     border: 1px solid var(--line-strong);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--btn-bg);
     color: var(--fg);
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   }
   .btn:hover {
     transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.35);
-    background: rgba(255, 255, 255, 0.08);
+    border-color: rgb(var(--a1-rgb) / 0.45);
+    background: var(--btn-bg-hover);
   }
   .btn-glow {
     border: 0;
@@ -271,11 +362,11 @@ body {
     /* horizontal, with matching first and last stops, so the moving gradient loops without a seam */
     background: linear-gradient(90deg, var(--b1), var(--b2) 33%, var(--b3) 66%, var(--b1));
     background-size: 220% auto;
-    box-shadow: 0 10px 40px -10px rgb(var(--a1-rgb) / 0.7);
+    box-shadow: 0 10px 30px -12px rgb(var(--a1-rgb) / 0.55);
     animation: grad-pan 6s linear infinite;
   }
   .btn-glow:hover {
-    box-shadow: 0 16px 50px -8px rgb(var(--a1-rgb) / 0.9);
+    box-shadow: 0 16px 40px -10px rgb(var(--a1-rgb) / 0.7);
   }
 
   .link {
@@ -284,7 +375,7 @@ body {
     transition: background-size 0.3s ease, color 0.3s ease;
   }
   .link:hover {
-    color: #fff;
+    color: var(--a1);
     background-size: 100% 1px;
   }
 
@@ -308,8 +399,8 @@ body {
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: color-mix(in srgb, var(--a1) 60%, white);
-    background: rgb(var(--a1-rgb) / 0.1);
+    color: var(--a1);
+    background: rgb(var(--a1-rgb) / 0.07);
   }
 
   /* scroll reveal: children of [data-stagger] animate one after another */
@@ -374,7 +465,7 @@ body {
     background-image: linear-gradient(135deg, color-mix(in srgb, var(--a3) 70%, black), var(--a3));
   }
   .text-soft-accent {
-    color: color-mix(in srgb, var(--a1) 65%, white);
+    color: var(--a1);
   }
 
   .float-a {
@@ -498,7 +589,7 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.35;
+  opacity: 0.5;
   animation: aurora 26s ease-in-out infinite;
 }
 .aurora span:nth-child(1) {
@@ -507,7 +598,7 @@ body {
   width: 55vw;
   height: 55vw;
   background: var(--glow1);
-  opacity: 0.3;
+  opacity: 0.55;
 }
 .aurora span:nth-child(2) {
   top: 30vh;
@@ -523,8 +614,17 @@ body {
   width: 40vw;
   height: 40vw;
   background: var(--glow3);
-  opacity: 0.16;
+  opacity: 0.4;
   animation-delay: -17s;
+}
+[data-palette$="-dark"] .aurora span {
+  opacity: 0.35;
+}
+[data-palette$="-dark"] .aurora span:nth-child(1) {
+  opacity: 0.3;
+}
+[data-palette$="-dark"] .aurora span:nth-child(3) {
+  opacity: 0.16;
 }
 .grid-overlay {
   position: fixed;
@@ -532,8 +632,8 @@ body {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 75%);
 }
@@ -546,7 +646,7 @@ body {
     radial-gradient(60% 80% at 15% 20%, color-mix(in srgb, var(--c1) 75%, transparent), transparent 70%),
     radial-gradient(55% 75% at 85% 85%, color-mix(in srgb, var(--c2) 65%, transparent), transparent 70%),
     radial-gradient(40% 50% at 60% 40%, color-mix(in srgb, var(--c3) 50%, transparent), transparent 75%),
-    #0b0d18;
+    color-mix(in srgb, var(--b1) 55%, #0f1b2d);
   background-size: 160% 160%, 160% 160%, 140% 140%, auto;
   animation: cover-drift 14s ease-in-out infinite;
 }
@@ -827,6 +927,10 @@ html[data-intro="play"] .enter {
   --line: rgba(255, 255, 255, 0.1);
   --fg: #f4f4f8;
   --muted: #9a9eb4;
+  --fg-soft: #c4c6d4;
+  --bg: #06070d;
+  --bg-2: #0b0d18;
+  --line-strong: rgba(255, 255, 255, 0.16);
   color-scheme: dark;
   min-height: 100vh;
   color: var(--fg);

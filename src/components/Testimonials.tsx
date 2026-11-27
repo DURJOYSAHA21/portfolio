@@ -29,13 +29,13 @@ export default function Testimonials() {
                   name="quote"
                   size={64}
                   strokeWidth={1.2}
-                  className="pointer-events-none absolute -right-2 -top-2 text-white/[0.06]"
+                  className="pointer-events-none absolute -right-2 -top-2 text-fg/[0.06]"
                 />
                 <Icon name="quote" size={26} className="text-a2" />
                 <blockquote className="mt-4 flex-1 text-[1.02rem] leading-relaxed text-fg">“{t.quote}”</blockquote>
-                <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+                <div className="mt-6 flex items-center gap-3 border-t border-fg/10 pt-5">
                   {t.photo ? (
-                    <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-white/15">
+                    <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-fg/15">
                       <Image src={asset(t.photo)} alt="" fill sizes="44px" className="object-cover" />
                     </span>
                   ) : (
@@ -53,12 +53,12 @@ export default function Testimonials() {
                         href={t.link}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="display font-semibold text-white hover:text-a2"
+                        className="display font-semibold text-fg hover:text-a2"
                       >
                         {t.name}
                       </a>
                     ) : (
-                      <p className="display font-semibold text-white">{t.name}</p>
+                      <p className="display font-semibold text-fg">{t.name}</p>
                     )}
                     {t.role && <p className="text-[0.82rem] leading-snug text-muted">{t.role}</p>}
                   </div>

@@ -64,7 +64,7 @@ export default function Modal({
       aria-modal="true"
       aria-label={label}
       onMouseDown={(e) => e.target === e.currentTarget && onClose()}
-      className={`modal-in fixed inset-0 z-[70] flex justify-center bg-black/75 p-3 backdrop-blur-md sm:p-8 ${
+      className={`modal-in fixed inset-0 z-[70] flex justify-center bg-[rgba(15,27,45,0.55)] p-3 backdrop-blur-md sm:p-8 ${
         align === "top" ? "items-start pt-[12vh]" : "items-center"
       }`}
     >

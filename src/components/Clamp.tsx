@@ -23,7 +23,7 @@ export default function Clamp({
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
-          className="mt-1 self-start text-[0.8rem] font-semibold text-soft-accent hover:text-white"
+          className="mt-1 self-start text-[0.8rem] font-semibold text-soft-accent hover:text-fg"
         >
           {open ? "Show less" : "Read more"}
         </button>

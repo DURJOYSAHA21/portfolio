@@ -228,15 +228,28 @@ export type SiteContent = {
   theme: { palette: Palette; custom: CustomColors };
 };
 
-export type Palette = "ocean" | "aurora" | "sunset" | "emerald" | "custom";
+export type Palette =
+  | "ocean"
+  | "aurora"
+  | "sunset"
+  | "emerald"
+  | "ocean-dark"
+  | "aurora-dark"
+  | "sunset-dark"
+  | "emerald-dark"
+  | "custom";
 /** a1 main accent, a2 second accent, a3 warm highlight, a4 third accent — all hex. */
 export type CustomColors = { a1: string; a2: string; a3: string; a4: string };
 
 export const PALETTES: { value: Palette; label: string; note: string; colors: string[] }[] = [
-  { value: "ocean", label: "Ocean", note: "Blue, cyan & emerald", colors: ["#38bdf8", "#22d3ee", "#34d399", "#fbbf24"] },
-  { value: "aurora", label: "Aurora", note: "Purple, cyan & pink", colors: ["#a78bfa", "#22d3ee", "#f472b6", "#fbbf24"] },
-  { value: "sunset", label: "Sunset", note: "Orange, rose & gold", colors: ["#fb923c", "#fb7185", "#f472b6", "#facc15"] },
-  { value: "emerald", label: "Emerald", note: "Green, teal & lime", colors: ["#34d399", "#22d3ee", "#2dd4bf", "#a3e635"] },
+  { value: "ocean", label: "Ocean", note: "Blue, cyan & emerald", colors: ["#1d4ed8", "#0369a1", "#047857", "#b45309"] },
+  { value: "aurora", label: "Aurora", note: "Purple, cyan & pink", colors: ["#6d28d9", "#1d4ed8", "#be185d", "#b45309"] },
+  { value: "sunset", label: "Sunset", note: "Orange, rose & gold", colors: ["#c2410c", "#be123c", "#be185d", "#a16207"] },
+  { value: "emerald", label: "Emerald", note: "Green, teal & lime", colors: ["#047857", "#0e7490", "#0f766e", "#4d7c0f"] },
+  { value: "ocean-dark", label: "Ocean Dark", note: "Original dark look · blue & cyan", colors: ["#38bdf8", "#22d3ee", "#34d399", "#fbbf24"] },
+  { value: "aurora-dark", label: "Aurora Dark", note: "Original dark look · purple & pink", colors: ["#a78bfa", "#22d3ee", "#f472b6", "#fbbf24"] },
+  { value: "sunset-dark", label: "Sunset Dark", note: "Original dark look · orange & rose", colors: ["#fb923c", "#fb7185", "#f472b6", "#facc15"] },
+  { value: "emerald-dark", label: "Emerald Dark", note: "Original dark look · green & teal", colors: ["#34d399", "#22d3ee", "#2dd4bf", "#a3e635"] },
   { value: "custom", label: "Custom", note: "Your own four colours", colors: [] },
 ];
 

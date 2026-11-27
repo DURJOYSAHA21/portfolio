@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: "#06070d" };
+export const viewport: Viewport = { themeColor: "#f4f7fc" };
 
 /**
  * Runs before first paint, so nothing flashes:

@@ -39,7 +39,7 @@ export default function ProjectModal({
   return (
     <Modal open label={build.title} onClose={onClose} className="max-w-5xl">
       <div className="min-h-0 overflow-y-auto">
-        <div className="relative bg-black/40">
+        <div className="relative bg-fg/5">
           {current ? (
             // eslint-disable-next-line @next/next/no-img-element -- uploaded screenshots of any size, shown whole
             <img
@@ -91,7 +91,7 @@ export default function ProjectModal({
         </div>
 
         {count > 1 && (
-          <div className="flex gap-2 overflow-x-auto border-b border-white/10 px-5 py-3">
+          <div className="flex gap-2 overflow-x-auto border-b border-fg/10 px-5 py-3">
             {shots.map((shot, i) => (
               <button
                 key={`${shot}-${i}`}
@@ -116,7 +116,7 @@ export default function ProjectModal({
               <span className="chip">{build.track === "course" ? "Course project" : "Personal project"}</span>
               {build.period && <span className="mono text-a2">{build.period}</span>}
             </p>
-            <h3 className="display mt-3 text-[clamp(1.5rem,3.5vw,2.1rem)] font-bold leading-tight text-white">
+            <h3 className="display mt-3 text-[clamp(1.5rem,3.5vw,2.1rem)] font-bold leading-tight text-fg">
               {build.title}
             </h3>
             <div className="mt-4 space-y-3 text-[0.98rem] leading-relaxed text-fg-soft">

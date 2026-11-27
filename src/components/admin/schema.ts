@@ -703,7 +703,7 @@ export const PAGES: Page[] = [
         kind: "fields",
         title: "Custom colours",
         description:
-          "Used when the palette is “Custom”. Pick four colours; the darker button shades and background glows are mixed from them automatically. Bright colours work best on the dark background.",
+          "Used when the palette is “Custom”. Pick four colours; the darker button shades and background glows are mixed from them automatically. Deep colours read best on the light background.",
         path: ["theme", "custom"],
         fields: [
           { key: "a1", label: "Main accent", type: "color", hint: "Name gradient, links, glows." },

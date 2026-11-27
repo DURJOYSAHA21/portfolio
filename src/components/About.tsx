@@ -15,7 +15,7 @@ export default function About() {
       <div className="grid gap-5 lg:grid-cols-[1.25fr_1fr]">
         <Reveal>
           <SpotlightCard as="div" className="h-full p-7 sm:p-10">
-            <p className="display text-[clamp(1.4rem,3vw,2rem)] font-semibold leading-snug tracking-tight text-white">
+            <p className="display text-[clamp(1.4rem,3vw,2rem)] font-semibold leading-snug tracking-tight text-fg">
               <Highlight text={ABOUT.headline} />
             </p>
             <div className="mt-6 space-y-4 text-[1.03rem] leading-relaxed text-fg-soft">
@@ -48,7 +48,7 @@ export default function About() {
                 </span>
                 <div>
                   <p className="text-[0.8rem] font-semibold uppercase tracking-wider text-muted">{fact.label}</p>
-                  <p className="mt-1 text-[0.98rem] leading-snug text-white">{fact.value}</p>
+                  <p className="mt-1 text-[0.98rem] leading-snug text-fg">{fact.value}</p>
                 </div>
               </SpotlightCard>
             </Reveal>

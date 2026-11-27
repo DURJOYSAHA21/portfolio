@@ -79,7 +79,7 @@ export default function Projects() {
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
                   filter === tab.id
                     ? "bg-[linear-gradient(90deg,var(--b1),var(--b2))] text-white shadow-[0_8px_24px_-8px_rgb(var(--a1-rgb)/0.8)]"
-                    : "text-fg-soft hover:text-white"
+                    : "text-fg-soft hover:text-fg"
                 }`}
               >
                 {tab.label}
@@ -177,7 +177,7 @@ function ProjectCard({ build, live, onOpen }: { build: Build; live?: Repo; onOpe
 
       <div className="flex flex-1 flex-col p-6">
         {build.period && <p className="mono text-[0.75rem] text-a2">{build.period}</p>}
-        <h3 className="display mt-1.5 text-[1.25rem] font-bold leading-tight tracking-tight text-white">
+        <h3 className="display mt-1.5 text-[1.25rem] font-bold leading-tight tracking-tight text-fg">
           {build.title}
         </h3>
         <p className={`mt-3 text-[0.92rem] leading-relaxed text-fg-soft ${long && !expanded ? "line-clamp-4" : ""}`}>
@@ -187,7 +187,7 @@ function ProjectCard({ build, live, onOpen }: { build: Build; live?: Repo; onOpe
           <button
             type="button"
             onClick={() => (onOpen ? onOpen() : setExpanded((e) => !e))}
-            className="mt-1.5 self-start text-[0.82rem] font-semibold text-soft-accent hover:text-white"
+            className="mt-1.5 self-start text-[0.82rem] font-semibold text-soft-accent hover:text-fg"
           >
             {onOpen ? "Read more →" : expanded ? "Show less" : "Read more"}
           </button>
@@ -210,7 +210,7 @@ function ProjectCard({ build, live, onOpen }: { build: Build; live?: Repo; onOpe
                 href={build.demo}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 font-semibold text-a2 hover:text-white"
+                className="inline-flex items-center gap-1.5 font-semibold text-a2 hover:text-fg"
               >
                 <Icon name="globe" size={16} /> Live demo
               </a>
@@ -220,7 +220,7 @@ function ProjectCard({ build, live, onOpen }: { build: Build; live?: Repo; onOpe
                 href={href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 font-semibold text-white hover:text-a2"
+                className="inline-flex items-center gap-1.5 font-semibold text-fg hover:text-a2"
               >
                 <Icon name="github" size={16} /> View code
                 <Icon name="arrowRight" size={14} className="transition-transform group-hover:translate-x-1" />

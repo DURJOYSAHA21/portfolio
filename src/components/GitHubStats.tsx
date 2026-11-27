@@ -9,8 +9,8 @@ import Reveal from "./Reveal";
 import Section from "./Section";
 import SpotlightCard from "./SpotlightCard";
 
-const LEVELS = ["bg-white/[0.06]", "lvl-1", "lvl-2", "lvl-3", "lvl-4"];
-const LANG_COLORS = ["var(--a1)", "var(--a2)", "var(--a4)", "var(--a3)", "rgb(255 255 255 / 0.35)"];
+const LEVELS = ["bg-fg/[0.06]", "lvl-1", "lvl-2", "lvl-3", "lvl-4"];
+const LANG_COLORS = ["var(--a1)", "var(--a2)", "var(--a4)", "var(--a3)", "rgb(15 27 45 / 0.3)"];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 type Data = { user: GitHubUser | null; repos: Repo[] | null; calendar: Contributions | null };
@@ -48,9 +48,9 @@ export default function GitHubStats() {
               <span className={`grid h-10 w-10 place-items-center rounded-xl text-white ${t.tint}`}>
                 <Icon name={t.icon} size={19} />
               </span>
-              <p className="display mt-4 text-[clamp(1.7rem,4vw,2.2rem)] font-bold leading-none text-white">
+              <p className="display mt-4 text-[clamp(1.7rem,4vw,2.2rem)] font-bold leading-none text-fg">
                 {t.value === undefined ? (
-                  <span className={`inline-block h-8 w-16 rounded-lg bg-white/10 ${data ? "" : "animate-pulse"}`} />
+                  <span className={`inline-block h-8 w-16 rounded-lg bg-fg/10 ${data ? "" : "animate-pulse"}`} />
                 ) : (
                   <CountUp value={t.value} />
                 )}
@@ -65,13 +65,13 @@ export default function GitHubStats() {
         <Reveal className="min-w-0">
           <SpotlightCard as="div" tilt={false} className="h-full p-5 sm:p-6">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3 className="display font-bold text-white">Contribution calendar</h3>
+              <h3 className="display font-bold text-fg">Contribution calendar</h3>
               <span className="text-[0.78rem] text-muted">last 12 months</span>
             </div>
             {data?.calendar ? (
               <Calendar days={data.calendar.days} />
             ) : (
-              <div className={`mt-5 h-[118px] rounded-xl bg-white/[0.04] ${data ? "" : "animate-pulse"}`}>
+              <div className={`mt-5 h-[118px] rounded-xl bg-fg/[0.04] ${data ? "" : "animate-pulse"}`}>
                 {data && (
                   <p className="grid h-full place-items-center text-sm text-muted">The calendar could not load right now.</p>
                 )}
@@ -82,8 +82,8 @@ export default function GitHubStats() {
 
         <Reveal delay={90}>
           <SpotlightCard as="div" tilt={false} className="h-full p-5 sm:p-6">
-            <h3 className="display font-bold text-white">Top languages</h3>
-            {own.length ? <Languages repos={own} /> : <div className="mt-5 h-24 animate-pulse rounded-xl bg-white/[0.04]" />}
+            <h3 className="display font-bold text-fg">Top languages</h3>
+            {own.length ? <Languages repos={own} /> : <div className="mt-5 h-24 animate-pulse rounded-xl bg-fg/[0.04]" />}
           </SpotlightCard>
         </Reveal>
       </div>
@@ -170,7 +170,7 @@ function Languages({ repos }: { repos: Repo[] }) {
 
   return (
     <>
-      <div className="mt-5 flex h-3 overflow-hidden rounded-full bg-white/5">
+      <div className="mt-5 flex h-3 overflow-hidden rounded-full bg-fg/5">
         {rows.map(([lang, n], i) => (
           <span key={lang} style={{ width: `${(n / total) * 100}%`, background: LANG_COLORS[i] }} className="h-full" />
         ))}

@@ -32,7 +32,7 @@ export default function Now() {
             <li key={`${item.label}-${i}`} className="h-full">
               <Reveal delay={i * 90} className="h-full">
                 <SpotlightCard as="div" className="lift relative h-full overflow-hidden p-6">
-                  <span className="mono absolute right-5 top-4 text-[2.6rem] font-bold leading-none text-white/[0.05]">
+                  <span className="mono absolute right-5 top-4 text-[2.6rem] font-bold leading-none text-fg/[0.05]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span

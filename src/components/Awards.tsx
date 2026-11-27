@@ -29,7 +29,7 @@ export default function Awards() {
               <SpotlightCard className="lift flex h-full flex-col p-6">
                 <div className="flex items-start gap-4">
                   {thumb ? (
-                    <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10">
+                    <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-fg/10">
                       <Image src={asset(thumb)} alt="" fill sizes="56px" className="object-cover" />
                     </span>
                   ) : (
@@ -45,7 +45,7 @@ export default function Awards() {
                     <p className={`text-[0.72rem] font-semibold uppercase tracking-wider ${honor ? "text-amber" : "text-a2"}`}>
                       {honor ? "Honor" : "Certification"}
                     </p>
-                    <h3 className="display mt-1 font-bold leading-snug text-white">{item.title}</h3>
+                    <h3 className="display mt-1 font-bold leading-snug text-fg">{item.title}</h3>
                   </div>
                 </div>
                 <p className="mt-4 text-[0.88rem] leading-snug text-fg-soft">{item.issuer}</p>
@@ -67,7 +67,7 @@ export default function Awards() {
       {CO_CURRICULAR.length > 0 && (
         <div className="mt-16">
           <Reveal>
-            <h3 className="display mb-6 flex items-center justify-center gap-3 text-xl font-bold text-white">
+            <h3 className="display mb-6 flex items-center justify-center gap-3 text-xl font-bold text-fg">
               <Icon name="users" className="text-a4" /> {CONTENT.coCurricularTitle}
             </h3>
           </Reveal>
@@ -76,7 +76,7 @@ export default function Awards() {
               <li key={`${row.title}-${i}`} className="h-full">
                 <Reveal delay={(i % 4) * 70} className="h-full">
                   <SpotlightCard as="div" className="lift h-full p-5">
-                    <p className="display font-semibold leading-snug text-white">{row.title}</p>
+                    <p className="display font-semibold leading-snug text-fg">{row.title}</p>
                     <p className="mt-2 text-[0.86rem] leading-relaxed text-fg-soft">{row.note}</p>
                     {(row.certificate || row.certificateLink) && (
                       <div className="mt-4">

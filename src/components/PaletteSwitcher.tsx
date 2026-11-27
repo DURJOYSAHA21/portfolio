@@ -54,7 +54,7 @@ export default function PaletteSwitcher() {
         <div
           role="radiogroup"
           aria-label="Colour theme"
-          className="glass modal-pop absolute bottom-14 left-0 w-56 p-2 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.9)]"
+          className="glass modal-pop absolute bottom-14 left-0 w-56 p-2 shadow-[0_20px_50px_-15px_rgba(15,40,80,0.25)]"
         >
           <p className="px-2.5 pb-1.5 pt-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
             Colour theme
@@ -70,12 +70,12 @@ export default function PaletteSwitcher() {
                 aria-checked={on}
                 onClick={() => setVisitorPalette(p.value)}
                 className={`flex w-full items-center gap-3 rounded-xl px-2.5 py-2 text-left text-sm transition-colors ${
-                  on ? "bg-white/10 text-white" : "text-fg-soft hover:bg-white/5 hover:text-white"
+                  on ? "bg-fg/10 text-fg" : "text-fg-soft hover:bg-fg/5 hover:text-fg"
                 }`}
               >
                 <span className="flex -space-x-1.5">
                   {colors.slice(0, 3).map((c) => (
-                    <span key={c} className="h-4 w-4 rounded-full border border-black/40" style={{ background: c }} />
+                    <span key={c} className="h-4 w-4 rounded-full border border-bg" style={{ background: c }} />
                   ))}
                 </span>
                 <span className="flex-1">{p.label}</span>
@@ -92,7 +92,7 @@ export default function PaletteSwitcher() {
         aria-expanded={open}
         aria-label="Change colour theme"
         title="Change colour theme"
-        className="group grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-[rgba(10,11,20,0.75)] shadow-lg backdrop-blur-xl transition-transform hover:scale-110"
+        className="group grid h-11 w-11 place-items-center rounded-full border border-fg/15 bg-[var(--nav-bg)] shadow-lg backdrop-blur-xl transition-transform hover:scale-110"
       >
         <span className="tint-1 grid h-6 w-6 place-items-center rounded-full transition-transform duration-500 group-hover:rotate-[20deg]">
           <Icon name="droplet" size={13} className="text-white" />

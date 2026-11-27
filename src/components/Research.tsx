@@ -57,7 +57,7 @@ export default function Research() {
       {RESEARCH_BUILDS.length > 0 && (
         <div className="mt-16">
           <Reveal>
-            <h3 className="display mb-6 flex items-center justify-center gap-3 text-xl font-bold text-white">
+            <h3 className="display mb-6 flex items-center justify-center gap-3 text-xl font-bold text-fg">
               <Icon name="code" className="text-a2" /> Research code
             </h3>
           </Reveal>
@@ -69,7 +69,7 @@ export default function Research() {
                     <Cover title={build.title} image={build.image} icon="terminal" compact className="h-24 w-full" />
                     <div className="flex flex-1 flex-col p-5">
                       <p className="mono text-[0.72rem] text-a2">{build.label}</p>
-                      <h4 className="display mt-1 text-[1rem] font-bold text-white">{build.title}</h4>
+                      <h4 className="display mt-1 text-[1rem] font-bold text-fg">{build.title}</h4>
                       <Clamp text={build.note} lines={3} className="mt-2 text-[0.86rem] leading-relaxed text-fg-soft" />
                       {build.stack.length > 0 && (
                         <ul className="mt-3 flex flex-wrap gap-1.5">
@@ -86,7 +86,7 @@ export default function Research() {
                             href={`https://github.com/${GITHUB_USER}/${build.repo}`}
                             target="_blank"
                             rel="noreferrer noopener"
-                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-a2"
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-fg hover:text-a2"
                           >
                             <Icon name="github" size={15} /> Code
                           </a>
@@ -131,7 +131,7 @@ function PaperCard({ paper }: { paper: Paper }) {
           {paper.venue}
           {paper.year && !paper.venue.includes(paper.year) && <> · {paper.year}</>}
         </p>
-        <h3 className="display mt-1.5 text-[0.98rem] font-bold leading-snug text-white">{paper.title}</h3>
+        <h3 className="display mt-1.5 text-[0.98rem] font-bold leading-snug text-fg">{paper.title}</h3>
         {paper.note && (
           <Clamp text={paper.note} lines={3} className="mt-2 text-[0.85rem] leading-relaxed text-fg-soft" />
         )}
@@ -142,7 +142,7 @@ function PaperCard({ paper }: { paper: Paper }) {
                 href={paper.link}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-a2"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-fg hover:text-a2"
               >
                 Read paper <Icon name="external" size={13} />
               </a>

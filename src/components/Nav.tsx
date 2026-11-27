@@ -44,7 +44,7 @@ export default function Nav() {
         aria-label="Main"
         className={`flex w-full max-w-[860px] items-center gap-2 rounded-full border px-2 py-2 transition-all duration-500 ${
           scrolled || open
-            ? "border-white/10 bg-[rgba(10,11,20,0.72)] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+            ? "border-fg/10 bg-[var(--nav-bg)] shadow-[0_20px_50px_-20px_rgba(15,40,80,0.25)] backdrop-blur-xl"
             : "border-transparent bg-transparent"
         }`}
       >
@@ -62,7 +62,7 @@ export default function Nav() {
                 href={`#${id}`}
                 aria-current={active === id ? "true" : undefined}
                 className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
-                  active === id ? "bg-white/10 text-white" : "text-fg-soft hover:text-white"
+                  active === id ? "bg-fg/10 text-fg" : "text-fg-soft hover:text-fg"
                 }`}
               >
                 {label}
@@ -77,7 +77,7 @@ export default function Nav() {
             onClick={openCommandPalette}
             aria-label="Search (Ctrl+K)"
             title="Search (Ctrl+K)"
-            className="ml-auto grid h-9 place-items-center rounded-full border border-white/10 px-2.5 text-fg-soft transition-colors hover:border-white/25 hover:text-white md:ml-1"
+            className="ml-auto grid h-9 place-items-center rounded-full border border-fg/10 px-2.5 text-fg-soft transition-colors hover:border-fg/25 hover:text-fg md:ml-1"
           >
             <span className="flex items-center gap-2">
               <Icon name="search" size={16} />
@@ -98,7 +98,7 @@ export default function Nav() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label="Menu"
-          className="grid h-9 w-9 place-items-center rounded-full text-fg hover:bg-white/10 md:hidden"
+          className="grid h-9 w-9 place-items-center rounded-full text-fg hover:bg-fg/10 md:hidden"
         >
           <Icon name={open ? "close" : "menu"} />
         </button>
@@ -114,7 +114,7 @@ export default function Nav() {
               <a
                 href={`#${id}`}
                 onClick={() => setOpen(false)}
-                className="block rounded-xl px-4 py-3 text-[0.98rem] font-medium text-fg-soft hover:bg-white/10 hover:text-white"
+                className="block rounded-xl px-4 py-3 text-[0.98rem] font-medium text-fg-soft hover:bg-fg/10 hover:text-fg"
               >
                 {label}
               </a>

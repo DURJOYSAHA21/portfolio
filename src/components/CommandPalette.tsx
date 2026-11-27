@@ -150,7 +150,7 @@ export default function CommandPalette() {
   let lastGroup = "";
   return (
     <Modal open={open} onClose={close} label="Search the site" align="top" className="max-w-xl">
-      <div className="flex items-center gap-3 border-b border-white/10 px-4">
+      <div className="flex items-center gap-3 border-b border-fg/10 px-4">
         <Icon name="search" className="shrink-0 text-muted" />
         <input
           data-autofocus
@@ -176,9 +176,9 @@ export default function CommandPalette() {
           aria-controls="cmdk-list"
           aria-activedescendant={results[active] ? `cmdk-${active}` : undefined}
           style={{ outline: "none" }}
-          className="h-14 w-full bg-transparent text-[1rem] text-white placeholder:text-muted"
+          className="h-14 w-full bg-transparent text-[1rem] text-fg placeholder:text-muted"
         />
-        <kbd className="mono hidden rounded-md border border-white/15 px-1.5 py-0.5 text-[0.7rem] text-muted sm:block">Esc</kbd>
+        <kbd className="mono hidden rounded-md border border-fg/15 px-1.5 py-0.5 text-[0.7rem] text-muted sm:block">Esc</kbd>
       </div>
       <ul id="cmdk-list" ref={list} role="listbox" className="max-h-[55vh] overflow-y-auto p-2">
         {results.length === 0 && <li className="px-4 py-10 text-center text-sm text-muted">Nothing matches “{query}”.</li>}
@@ -200,12 +200,12 @@ export default function CommandPalette() {
                 onMouseMove={() => setActive(i)}
                 onClick={() => pick(item)}
                 className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-colors ${
-                  i === active ? "bg-white/10 text-white" : "text-fg-soft"
+                  i === active ? "bg-fg/10 text-fg" : "text-fg-soft"
                 }`}
               >
                 <span
                   className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg ${
-                    i === active ? "tint-1 text-white" : "bg-white/5 text-fg-soft"
+                    i === active ? "tint-1 text-white" : "bg-fg/5 text-fg-soft"
                   }`}
                 >
                   <Icon name={copiedRow ? "check" : item.icon} size={16} />
@@ -220,7 +220,7 @@ export default function CommandPalette() {
           );
         })}
       </ul>
-      <div className="flex items-center gap-4 border-t border-white/10 px-4 py-2.5 text-[0.72rem] text-muted">
+      <div className="flex items-center gap-4 border-t border-fg/10 px-4 py-2.5 text-[0.72rem] text-muted">
         <span>
           <kbd className="mono">↑↓</kbd> move
         </span>

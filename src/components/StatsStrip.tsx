@@ -31,7 +31,7 @@ export default function StatsStrip() {
               >
                 <Icon name={ICONS[i % ICONS.length]} size={19} />
               </span>
-              <p className="display mt-4 text-[clamp(1.8rem,4vw,2.4rem)] font-bold leading-none text-white">
+              <p className="display mt-4 text-[clamp(1.8rem,4vw,2.4rem)] font-bold leading-none text-fg">
                 <CountUp value={stat.value} decimals={stat.decimals} suffix={stat.suffix} />
               </p>
               <p className="mt-2 text-sm font-semibold text-fg">{stat.label}</p>

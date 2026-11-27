@@ -55,7 +55,7 @@ export default function Home() {
       {FEATURES.commandPalette && <CommandPalette />}
       {FEATURES.paletteSwitcher && <PaletteSwitcher />}
       {FEATURES.cursor && <Cursor />}
-      <footer className="relative z-10 mt-10 border-t border-white/10">
+      <footer className="relative z-10 mt-10 border-t border-fg/10">
         <div className="shell flex flex-col items-center justify-between gap-4 py-10 text-sm text-muted sm:flex-row">
           <p>
             © {new Date().getFullYear()} <span className="text-fg">{PROFILE.first} {PROFILE.last}</span> ·{" "}
@@ -67,14 +67,14 @@ export default function Home() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="GitHub"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/10 hover:border-white/30 hover:text-white"
+              className="grid h-10 w-10 place-items-center rounded-full border border-fg/10 hover:border-fg/30 hover:text-fg"
             >
               <Icon name="github" size={17} />
             </a>
             <a
               href={`mailto:${CONTACT.email}`}
               aria-label="Email"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/10 hover:border-white/30 hover:text-white"
+              className="grid h-10 w-10 place-items-center rounded-full border border-fg/10 hover:border-fg/30 hover:text-fg"
             >
               <Icon name="mail" size={17} />
             </a>

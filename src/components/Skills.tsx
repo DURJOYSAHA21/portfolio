@@ -41,7 +41,7 @@ export default function Skills() {
                   >
                     <Icon name={iconFor(group.label, i)} size={20} />
                   </span>
-                  <h3 className="display text-[1.1rem] font-bold text-white">{group.label}</h3>
+                  <h3 className="display text-[1.1rem] font-bold text-fg">{group.label}</h3>
                   <span className="mono ml-auto text-xs text-muted">{String(group.items.length).padStart(2, "0")}</span>
                 </div>
                 <ul className="mt-5 flex flex-wrap gap-2">

@@ -36,7 +36,7 @@ export default function Competitions() {
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="text-[0.8rem] font-semibold text-soft-accent">{arena.event}</p>
-                  <h3 className="display mt-1 text-[1.2rem] font-bold leading-tight text-white">{arena.title}</h3>
+                  <h3 className="display mt-1 text-[1.2rem] font-bold leading-tight text-fg">{arena.title}</h3>
                   {arena.note && <p className="mt-3 text-[0.92rem] leading-relaxed text-fg-soft">{arena.note}</p>}
                   {arena.stack.length > 0 && (
                     <ul className="mt-5 flex flex-wrap gap-1.5">
@@ -54,7 +54,7 @@ export default function Competitions() {
                           href={arena.demo}
                           target="_blank"
                           rel="noreferrer noopener"
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-a2 hover:text-white"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-a2 hover:text-fg"
                         >
                           <Icon name="globe" size={16} /> Live demo
                         </a>
@@ -64,7 +64,7 @@ export default function Competitions() {
                           href={`https://github.com/${GITHUB_USER}/${arena.repo}`}
                           target="_blank"
                           rel="noreferrer noopener"
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-a2"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-fg hover:text-a2"
                         >
                           <Icon name="github" size={16} /> View code <Icon name="arrowRight" size={14} />
                         </a>

@@ -36,7 +36,7 @@ export default function Intro() {
   return (
     <div aria-hidden="true" className="intro">
       <div className="text-center">
-        <p className="display text-[clamp(2.2rem,8vw,5rem)] font-extrabold leading-none tracking-[-0.03em] text-white">
+        <p className="display text-[clamp(2.2rem,8vw,5rem)] font-extrabold leading-none tracking-[-0.03em] text-fg">
           {[...name].map((ch, i) => (
             <span key={i} className="intro-letter" style={{ animationDelay: `${120 + i * 45}ms` }}>
               {ch === " " ? " " : ch}

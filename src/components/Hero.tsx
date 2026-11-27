@@ -102,7 +102,7 @@ export default function Hero() {
             {BADGES.map((badge, i) => (
               <div
                 key={badge.label}
-                className={`glass absolute flex items-center gap-3 !rounded-2xl px-4 py-3 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.9)] ${
+                className={`glass absolute flex items-center gap-3 !rounded-2xl px-4 py-3 shadow-[0_20px_40px_-20px_rgba(15,40,80,0.25)] ${
                   i === 0 ? "float-a -left-4 top-[12%] sm:-left-10" : "float-b -right-4 bottom-[10%] sm:-right-8"
                 }`}
               >
@@ -114,7 +114,7 @@ export default function Hero() {
                   <Icon name={i === 0 ? "graduation" : "flask"} size={18} />
                 </span>
                 <span className="text-left">
-                  <span className="display block text-lg font-bold leading-none text-white">{badge.value}</span>
+                  <span className="display block text-lg font-bold leading-none text-fg">{badge.value}</span>
                   <span className="mt-1 block text-[0.72rem] text-muted">{badge.label}</span>
                 </span>
               </div>
@@ -128,8 +128,8 @@ export default function Hero() {
         aria-label="Scroll down"
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 sm:block"
       >
-        <span className="flex h-10 w-6 justify-center rounded-full border-2 border-white/25 pt-2">
-          <span className="h-2 w-1 animate-bounce rounded-full bg-white/70" />
+        <span className="flex h-10 w-6 justify-center rounded-full border-2 border-fg/25 pt-2">
+          <span className="h-2 w-1 animate-bounce rounded-full bg-fg/70" />
         </span>
       </a>
     </section>

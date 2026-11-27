@@ -8,7 +8,7 @@ function Row({ words, reverse = false }: { words: string[]; reverse?: boolean })
       {words.map((word) => (
         <span
           key={word}
-          className="display flex shrink-0 items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-[0.95rem] font-semibold text-fg-soft"
+          className="display flex shrink-0 items-center gap-3 rounded-full border border-fg/10 bg-fg/[0.03] px-5 py-2.5 text-[0.95rem] font-semibold text-fg-soft"
         >
           <span className="h-1.5 w-1.5 rounded-full tint-1" />
           {word}
